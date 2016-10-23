@@ -6,25 +6,26 @@ The MIT license of this project covers only my work. The content of any file of 
 
 This is a rougtly accurate simulation of the solar system using the Keplerian equations with orbital elements at epoch J2000. Scales of orbits and bodies not in sync but accurate.
 
-LIMITS
+##Limits
 - Moon orbit mutliplied by 1000 (otherwise we wouldn't see it)
 - Some inacuracies in the orbital elements as detailed on the JPL website. (http://ssd.jpl.nasa.gov/?planets)
 - Limits in the scales due to 32bit precision as well as the distance view of the camera
 
-THANKS
+##Thanks
 Please see each related license in their own file with their work.
-Textures by:
+
+###Textures by:
 - Solar System Scope
-- James Hasting
+- James Hastings-Trew
 - Alpha-Element (deviantart.com)
 
-Sounds and Music by:
+###Sounds and Music by:
 - dl-sounds.com
 - Unfa (freesound.org)
 
-Maths and data:
+###Maths and data:
 - Kepler and Newton
 - JPL and other Nasa website
 - Wikipedia (for all I ever did)
-- jgiesen.de/kepler
+- jgiesen.de/kepler/kepler.html
 - Philosophaie (physicsforums.com)
