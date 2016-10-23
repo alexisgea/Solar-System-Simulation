@@ -1,0 +1,1 @@
+This normal map was made using the bump map from James Hastings-Trew (from http://planetpixelemporium.com/planets.html) and the following online tool : http://cpetry.github.io/NormalMap-Online/
