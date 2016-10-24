@@ -21,7 +21,7 @@ public class InfosDisplay : MonoBehaviour {
 			CheckControl ();
 
 	}
-
+		
 
 	/// <summary>
 	/// Check if the player is openeing of closeing the menu.
@@ -35,5 +35,13 @@ public class InfosDisplay : MonoBehaviour {
 			GetComponent<AudioSource> ().PlayOneShot (openSound);
 		else
 			GetComponent<AudioSource> ().PlayOneShot (closeSound);
+	}
+
+
+	/// <summary>
+	/// Quits the app.
+	/// </summary>
+	public void QuitApp(){
+		Application.Quit ();
 	}
 }

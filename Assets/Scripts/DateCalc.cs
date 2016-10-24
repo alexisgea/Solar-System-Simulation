@@ -18,8 +18,8 @@ public class DateCalc : MonoBehaviour {
 
 
 	private void Start () {
-		
 		FindObjectOfType<StellarSystem> ().scaling += UpdateScale;
+		timeScale = FindObjectOfType<StellarSystem> ().TimeScale;
 		dateLabel = GetComponent<Text> ();
 	}
 
