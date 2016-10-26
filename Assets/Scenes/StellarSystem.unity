@@ -146,7 +146,7 @@ Prefab:
         type: 2}
       propertyPath: Body
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1388008725}
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -163,7 +163,7 @@ Prefab:
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: sideralYear
-      value: 30688.5
+      value: 30687.152
       objectReference: {fileID: 0}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
@@ -216,7 +216,7 @@ Prefab:
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: meanAnomaly
-      value: 142.239
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
@@ -272,6 +272,16 @@ Prefab:
       propertyPath: uiVisual.b
       value: 0.7647059
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: StellarParent
+      value: 
+      objectReference: {fileID: 1934619618}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _stellarParent
+      value: 
+      objectReference: {fileID: 1934619618}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -387,6 +397,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c918ddc4aacaa56468c8849dd8449079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &150796541 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012175449282, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1542347875}
 --- !u!1 &218044793
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +494,7 @@ Prefab:
         type: 2}
       propertyPath: Body
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1337939941}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: orbit
@@ -492,7 +507,7 @@ Prefab:
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: sideralYear
-      value: 87.97
+      value: 87.969
       objectReference: {fileID: 0}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
@@ -548,7 +563,7 @@ Prefab:
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: meanAnomaly
-      value: 174.796
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
@@ -617,6 +632,16 @@ Prefab:
       propertyPath: uiVisual.b
       value: 0.44544768
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: StellarParent
+      value: 
+      objectReference: {fileID: 1934619618}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _stellarParent
+      value: 
+      objectReference: {fileID: 1934619618}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -1078,6 +1103,16 @@ Prefab:
       propertyPath: uiVisual.b
       value: 0.8161765
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: StellarParent
+      value: 
+      objectReference: {fileID: 1991514988}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _stellarParent
+      value: 
+      objectReference: {fileID: 1991514988}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -1137,7 +1172,7 @@ Prefab:
         type: 2}
       propertyPath: Body
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1933098085}
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1154,7 +1189,7 @@ Prefab:
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: sideralYear
-      value: 686.97
+      value: 686.979
       objectReference: {fileID: 0}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
@@ -1203,7 +1238,7 @@ Prefab:
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: meanAnomaly
-      value: 19.373
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
@@ -1259,6 +1294,16 @@ Prefab:
       propertyPath: uiVisual.b
       value: 0.22383219
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: StellarParent
+      value: 
+      objectReference: {fileID: 1934619618}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _stellarParent
+      value: 
+      objectReference: {fileID: 1934619618}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -1728,7 +1773,7 @@ Prefab:
         type: 2}
       propertyPath: Body
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1758566540}
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1741,7 +1786,7 @@ Prefab:
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: sideralYear
-      value: 224.7
+      value: 224.701
       objectReference: {fileID: 0}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
@@ -1794,7 +1839,7 @@ Prefab:
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: meanAnomaly
-      value: 50.115
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
@@ -1854,6 +1899,16 @@ Prefab:
       propertyPath: uiVisual.b
       value: 0.42744377
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: StellarParent
+      value: 
+      objectReference: {fileID: 1934619618}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _stellarParent
+      value: 
+      objectReference: {fileID: 1934619618}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -2014,6 +2069,16 @@ Prefab:
       propertyPath: startDayRotation
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: StellarParent
+      value: 
+      objectReference: {fileID: 1979238811}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _stellarParent
+      value: 
+      objectReference: {fileID: 1979238811}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -2119,6 +2184,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 708538638}
+--- !u!1 &737488144 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012175449282, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1279427541}
 --- !u!1 &739539305
 GameObject:
   m_ObjectHideFlags: 0
@@ -2164,8 +2234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6626a0fe400b60046a8e15a4ac90e6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stellarSystem: {fileID: 1991514988}
-  label: {fileID: 1000011553156764, guid: 4e8537982ae78ac42942b114315e2b5d, type: 2}
+  _stellarSystem: {fileID: 1991514988}
+  _label: {fileID: 1000011553156764, guid: 4e8537982ae78ac42942b114315e2b5d, type: 2}
 --- !u!1 &799676509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2360,6 +2430,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 856319779}
+--- !u!1 &933970602 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012175449282, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1352994698}
 --- !u!1 &975401594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,154 +2569,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 975401594}
---- !u!1 &981929026
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 981929027}
-  - 222: {fileID: 981929029}
-  - 114: {fileID: 981929028}
-  m_Layer: 5
-  m_Name: BodyScale
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &981929027
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 981929026}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1695578118}
-  m_RootOrder: 3
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -68}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &981929028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 981929026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Body scale:'
---- !u!222 &981929029
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 981929026}
---- !u!1 &985971031
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 985971032}
-  - 222: {fileID: 985971034}
-  - 114: {fileID: 985971033}
-  m_Layer: 5
-  m_Name: OrbitScale
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &985971032
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 985971031}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1695578118}
-  m_RootOrder: 4
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -83}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &985971033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 985971031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Orbit scale:'
---- !u!222 &985971034
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 985971031}
 --- !u!1 &1009313636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2995,7 +2922,7 @@ Prefab:
         type: 2}
       propertyPath: Body
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 737488144}
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3012,7 +2939,7 @@ Prefab:
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: sideralYear
-      value: 10759.22
+      value: 10755.698
       objectReference: {fileID: 0}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
@@ -3065,7 +2992,7 @@ Prefab:
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: meanAnomaly
-      value: 317.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
@@ -3129,6 +3056,16 @@ Prefab:
       propertyPath: uiVisual.g
       value: 0.7821024
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: StellarParent
+      value: 
+      objectReference: {fileID: 1934619618}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _stellarParent
+      value: 
+      objectReference: {fileID: 1934619618}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -3137,6 +3074,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4000014174909576, guid: 2b54d9d4ca10a104a827f60900e85cf2,
     type: 2}
   m_PrefabInternal: {fileID: 1279427541}
+--- !u!1 &1337939941 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012175449282, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+    type: 2}
+  m_PrefabInternal: {fileID: 275702899}
 --- !u!1001 &1352994698
 Prefab:
   m_ObjectHideFlags: 0
@@ -3193,7 +3135,7 @@ Prefab:
         type: 2}
       propertyPath: Body
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 933970602}
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3210,7 +3152,7 @@ Prefab:
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: sideralYear
-      value: 4332.59
+      value: 4332.82
       objectReference: {fileID: 0}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
@@ -3263,7 +3205,7 @@ Prefab:
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: meanAnomaly
-      value: 20.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
@@ -3323,6 +3265,16 @@ Prefab:
       propertyPath: uiVisual.b
       value: 0.62467563
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: StellarParent
+      value: 
+      objectReference: {fileID: 1934619618}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _stellarParent
+      value: 
+      objectReference: {fileID: 1934619618}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -3331,6 +3283,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4000014174909576, guid: 2b54d9d4ca10a104a827f60900e85cf2,
     type: 2}
   m_PrefabInternal: {fileID: 1352994698}
+--- !u!1 &1388008725 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012175449282, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+    type: 2}
+  m_PrefabInternal: {fileID: 23802759}
 --- !u!1 &1501328987
 GameObject:
   m_ObjectHideFlags: 0
@@ -3539,7 +3496,7 @@ Prefab:
         type: 2}
       propertyPath: Body
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 150796541}
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3556,7 +3513,7 @@ Prefab:
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: sideralYear
-      value: 60182
+      value: 60190.027
       objectReference: {fileID: 0}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
@@ -3609,7 +3566,7 @@ Prefab:
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: meanAnomaly
-      value: 256.228
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
@@ -3670,6 +3627,16 @@ Prefab:
       propertyPath: uiVisual.b
       value: 0.7941176
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: StellarParent
+      value: 
+      objectReference: {fileID: 1934619618}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _stellarParent
+      value: 
+      objectReference: {fileID: 1934619618}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -3678,6 +3645,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4000014174909576, guid: 2b54d9d4ca10a104a827f60900e85cf2,
     type: 2}
   m_PrefabInternal: {fileID: 1542347875}
+--- !u!1 &1605137784 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012175449282, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+    type: 2}
+  m_PrefabInternal: {fileID: 2079665045}
 --- !u!4 &1681388271 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000014174909576, guid: 2b54d9d4ca10a104a827f60900e85cf2,
@@ -3713,8 +3685,6 @@ RectTransform:
   - {fileID: 1506957763}
   - {fileID: 2028181047}
   - {fileID: 1029978751}
-  - {fileID: 981929027}
-  - {fileID: 985971032}
   m_Father: {fileID: 82273424}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -3733,10 +3703,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb0a123cdd3f08542a6b4e321e10ae8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeScaleDisplay: {fileID: 1029978750}
-  orbitScaleDisplay: {fileID: 985971031}
-  bodyScaleDisplay: {fileID: 981929026}
-  focusDisplay: {fileID: 2028181046}
+  _timeScaleDisplay: {fileID: 1029978750}
+  _focusDisplay: {fileID: 2028181046}
+--- !u!1 &1758566540 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012175449282, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+    type: 2}
+  m_PrefabInternal: {fileID: 537669008}
 --- !u!1 &1843112742
 GameObject:
   m_ObjectHideFlags: 0
@@ -3803,8 +3776,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4736c50d8b6afc546aea10aaca43624b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 8300000, guid: 6ce2ed81fc5cabc468c078bd47ea712f, type: 3}
-  closeSound: {fileID: 8300000, guid: 4a8f2b6dc84a55842a48a07f0db79517, type: 3}
+  _open: {fileID: 8300000, guid: 6ce2ed81fc5cabc468c078bd47ea712f, type: 3}
+  _close: {fileID: 8300000, guid: 4a8f2b6dc84a55842a48a07f0db79517, type: 3}
 --- !u!82 &1843112746
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3958,6 +3931,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1871554908}
+--- !u!1 &1933098085 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012175449282, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+    type: 2}
+  m_PrefabInternal: {fileID: 413249693}
 --- !u!1 &1934619618 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000013060355054, guid: 2b54d9d4ca10a104a827f60900e85cf2,
@@ -4361,7 +4339,7 @@ Prefab:
         type: 2}
       propertyPath: Body
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1605137784}
     - target: {fileID: 0}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4378,7 +4356,7 @@ Prefab:
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: sideralYear
-      value: 365.25
+      value: 365.256
       objectReference: {fileID: 0}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
@@ -4463,7 +4441,7 @@ Prefab:
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
       propertyPath: meanAnomaly
-      value: 358.617
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
         type: 2}
@@ -4532,6 +4510,16 @@ Prefab:
       propertyPath: uiVisual.b
       value: 0.8014706
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: StellarParent
+      value: 
+      objectReference: {fileID: 1934619618}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _stellarParent
+      value: 
+      objectReference: {fileID: 1934619618}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0

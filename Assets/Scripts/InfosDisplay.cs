@@ -1,47 +1,44 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 /// <summary>
 /// UI Class for the infos popup menu.
 /// </summary>
-public class InfosDisplay : MonoBehaviour {
+public class InfosDisplay : MonoBehaviour
+{
+    [SerializeField] private AudioClip _open;
+    [SerializeField] private AudioClip _close;
+    private Animator _infosDisplayAnimator;
 
-	public AudioClip openSound;
-	public AudioClip closeSound;
-	private Animator infosDisplayAnimator;
+    private void Start()
+    {
+        _infosDisplayAnimator = GetComponent<Animator>();
+    }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            CheckControl();
+    }
 
-	private void Start () {
-		infosDisplayAnimator = GetComponent<Animator> ();
-	}
+    /// <summary>
+    /// Check if the player is openeing of closeing the menu.
+    /// Plays the associated sound.
+    /// </summary>
+    public void CheckControl()
+    {
+        _infosDisplayAnimator.SetBool("opened", !_infosDisplayAnimator.GetBool("opened"));
 
+        if (_infosDisplayAnimator.GetBool("opened"))
+            GetComponent<AudioSource>().PlayOneShot(_open);
+        else
+            GetComponent<AudioSource>().PlayOneShot(_close);
+    }
 
-	private void Update () {
-		if (Input.GetKeyDown (KeyCode.Escape))
-			CheckControl ();
-
-	}
-		
-
-	/// <summary>
-	/// Check if the player is openeing of closeing the menu.
-	/// Plays the associated sound.
-	/// </summary>
-	public void CheckControl(){
-		
-		infosDisplayAnimator.SetBool ("opened", !infosDisplayAnimator.GetBool ("opened"));
-
-		if (infosDisplayAnimator.GetBool ("opened"))
-			GetComponent<AudioSource> ().PlayOneShot (openSound);
-		else
-			GetComponent<AudioSource> ().PlayOneShot (closeSound);
-	}
-
-
-	/// <summary>
-	/// Quits the app.
-	/// </summary>
-	public void QuitApp(){
-		Application.Quit ();
-	}
+    /// <summary>
+    /// Quits the app.
+    /// </summary>
+    public void QuitApp()
+    {
+        Application.Quit();
+    }
 }

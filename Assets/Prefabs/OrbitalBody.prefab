@@ -119,20 +119,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5251520a1d7a9bb42b167142095775ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stellarParent: {fileID: 0}
-  body: {fileID: 1000012175449282}
-  lineMat: {fileID: 2100000, guid: 2886b8910f64e20478c928012ce6f1c4, type: 2}
-  sideralYear: 1
+  _stellarParent: {fileID: 0}
+  _body: {fileID: 1000012175449282}
+  _line: {fileID: 2100000, guid: 2886b8910f64e20478c928012ce6f1c4, type: 2}
+  sideralYear: 0
   semiMajorAxis: 2
   inclination: 0
   eccentricity: 0
   argAscending: 0
   argPerihelion: 0
   startMeanAnomaly: 0
+  meanAnomaly: 0
   dayLength: 1
   startDayRotation: 0
   size: 1
-  tilt: 0
   rightAscension: 0
   declination: 0
   uiVisual: {r: 1, g: 1, b: 1, a: 1}
