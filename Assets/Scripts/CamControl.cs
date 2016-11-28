@@ -129,11 +129,11 @@ public class CamControl : MonoBehaviour
         // Rotation of the cam around the center horizontally (on the y axis of Axis).
         if (Input.GetKey(KeyCode.D))
             transform.Rotate(new Vector3(0, -CamSpeed * Time.deltaTime, 0));
-        else if (Input.GetKey(KeyCode.Q))
+        else if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.A))
             transform.Rotate(new Vector3(0, CamSpeed * Time.deltaTime, 0));
 
         // Rotation of the cam around the center vertically (on the x axis of Pole).
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.W))
             pole.transform.Rotate(new Vector3(CamSpeed * Time.deltaTime, 0, 0));
         else if (Input.GetKey(KeyCode.S))
             pole.transform.Rotate(new Vector3(-CamSpeed * Time.deltaTime, 0, 0));

@@ -155,7 +155,7 @@ public class OrbitalBody : MonoBehaviour
     /// </summary>
     private void DrawPath()
     {
-        const float PathDetail = 0.01f;
+        const float PathDetail = 0.1f;
 
         GL.PushMatrix();
         _line.color = uiVisual;
