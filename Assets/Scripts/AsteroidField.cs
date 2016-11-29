@@ -7,6 +7,12 @@ public class AsteroidField : MonoBehaviour {
 	private Asteroid _asteroid;
 
 	[SerializeField]
+	private Mesh _astMesh;
+
+	[SerializeField]
+	private Material _astMat;
+
+	[SerializeField]
 	private int _fieldSize;
 
 	private Asteroid[] _field;
@@ -29,12 +35,18 @@ public class AsteroidField : MonoBehaviour {
 		_astStartOrbitRot = new float[_fieldSize];
 		_astInclinaison = new float[_fieldSize];
 
+		Mesh astMesh = CreateAsteroidMeshes();
+
 		for (int i = 0; i < _fieldSize; i++) {
 			_field[i] = Instantiate(_asteroid);
-			_field[i].GetComponent<MeshFilter>().mesh = CreateAsteroidMeshes();
+			_field[i].transform.parent = transform;
+			_field[i].GetComponent<MeshFilter>().sharedMesh = astMesh;
+			_field[i].GetComponent<MeshRenderer>().sharedMaterial = _astMat;
 
 			_field[i + _fieldSize] = Instantiate(_asteroid);
-			_field[i + _fieldSize].GetComponent<MeshFilter>().mesh = CreateAsteroidMeshes();
+			_field[i + _fieldSize].transform.parent = transform;
+			_field[i + _fieldSize].GetComponent<MeshFilter>().sharedMesh = astMesh;
+			_field[i + _fieldSize].GetComponent<MeshRenderer>().sharedMaterial = _astMat;
 
 			_astSemiMajAxis [i] = Random.Range (327800f, 476800f);
 			_astStartOrbitRot [i] = Mathf.Deg2Rad * Random.Range(0f, 360f);
@@ -42,8 +54,8 @@ public class AsteroidField : MonoBehaviour {
 			_field[i].transform.position = ComputeAstPos(i);
 			_field[i + _fieldSize].transform.position = -ComputeAstPos(i);
 
-			_field[i].CamCheck(Camera.main.transform);
-			_field[i + _fieldSize].CamCheck(Camera.main.transform);
+			//_field[i].CamCheck(Camera.main.transform);
+			//_field[i + _fieldSize].CamCheck(Camera.main.transform);
 		}
 	}
 	
@@ -94,8 +106,8 @@ public class AsteroidField : MonoBehaviour {
 			_field[i].transform.position = ComputeAstPos(i);
 			_field[i + _fieldSize].transform.position = -ComputeAstPos(i);
 
-			_field[i].CamCheck(cam);
-			_field[i + _fieldSize].CamCheck(cam);
+			//_field[i].CamCheck(cam);
+			//_field[i + _fieldSize].CamCheck(cam);
 		}
 		
 	}
