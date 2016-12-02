@@ -3403,9 +3403,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c478dbede607047976124a9a0b9b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _astMat: {fileID: 2100000, guid: d55b2a5978ae36a48b25b2b95a28394b, type: 2}
-  _fieldSize: 5000
-  _astRadius: 0.005
+  _beltPopulation: 1000
+  _maxRange: 476800
+  _minRange: 327800
+  _inclinationRange: 10
+  _eccentricityRange: 0
+  _asteroidRadius: 0.01
+  _asteroidComplexity: 3
+  _beltMaterial: {fileID: 2100000, guid: d55b2a5978ae36a48b25b2b95a28394b, type: 2}
 --- !u!4 &1460048317
 Transform:
   m_ObjectHideFlags: 0
