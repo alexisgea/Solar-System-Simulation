@@ -65,9 +65,7 @@ public class OrbitalBody : MonoBehaviour
             DrawPath();
     }
 
-    /// <summary>
-    /// Initialise the orbital body state as per the J2000 data.
-    /// </summary>
+    /// Initialises the orbital body state as per the J2000 data.
     private void SetJ2000()
     {
         transform.Rotate(new Vector3(0, 0, (90 - declination)));
@@ -78,9 +76,7 @@ public class OrbitalBody : MonoBehaviour
         meanAnomaly = startMeanAnomaly * Mathf.Deg2Rad;
     }
 
-    /// <summary>
-    /// Initialise the scales from the StellarSystem.
-    /// </summary>
+    /// Initialises the scales from the StellarSystem.
     private void SetScales()
     {
         _timeScale = FindObjectOfType<StellarSystem>().TimeScale;
@@ -126,9 +122,7 @@ public class OrbitalBody : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Calculate how much the body has moved in it's orbit and rotate it's axis accordingly.
-    /// </summary>
+    /// Calculates how much the body has moved in it's orbit and rotate it's axis accordingly.
     private void AdvanceOrbit()
     {
         meanAnomaly += _angularVelocity * Time.deltaTime * _timeScale;
@@ -140,19 +134,15 @@ public class OrbitalBody : MonoBehaviour
         transform.position = new Vector3(orbitPos.x + parentPos.x, orbitPos.y + parentPos.y, orbitPos.z + parentPos.z);
     }
 
-    /// <summary>
-    /// Rotate the body on itself as per it's day length.
-    /// </summary>
+    /// Rotates the body on itself as per it's day length.
     private void AdvanceDayRotation()
     {
         float rot = Time.deltaTime * _timeScale * (360 / dayLength);
         _body.transform.Rotate(new Vector3(0, -rot, 0)); // counter clockwise is the standard rotation considered
     }
 
-    /// <summary>
     /// Draws the orbit by calculating each next point in a circle.
     /// Then using the GL.Lines to draw a line between each point.
-    /// </summary>
     private void DrawPath()
     {
         const float PathDetail = 0.05f;

@@ -54,18 +54,14 @@ public class StellarSystem : MonoBehaviour
             CheckInput();
     }
 
-    /// <summary>
     /// Toggle on and off of scales control.
     /// Listening to UI events.
-    /// </summary>
     private void ControlToggle()
     {
         _userControl = !_userControl;
     }
 
-    /// <summary>
     /// Checks the input for scale controls.
-    /// </summary>
     private void CheckInput()
     {
         // Set body scale.

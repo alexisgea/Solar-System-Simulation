@@ -19,7 +19,7 @@ public class AsteroidBelt : MonoBehaviour {
 	private float[] _orbitPeriod;
 
 
-	private Vector3 _astPlaneCenter  = new Vector3(0, 0, 0);
+	private Vector3 _astPlaneOrigin  = new Vector3(0, 0, 0);
 	private Vector3 _astPlaneRight = new Vector3(1, 0, 0);
 	private Vector3 _astPlaneUp  = new Vector3(0, 1, 0);
 	private Vector3 _astPlaneBack  = new Vector3(0, 0, 1);
@@ -107,19 +107,12 @@ public class AsteroidBelt : MonoBehaviour {
 		//float T = 2 * Mathf.PI * Mathf.Sqrt (Mathf.Pow (_astSemiMajAxis [j] * _orbitScale, 3) / (17.78f));
 		float T = _orbitPeriod[j];
 		float rot = _astStartOrbitRot[j] + (_totalTime / T); // float rot = s[j] + (totalTime / T[j]);
-
-		// float x = _astSemiMajAxis[j] * _orbitScale * Mathf.Cos (_astInclinaison[j]) * Mathf.Cos (rot);  // maybe cos(i) and not sin(i)
-		// float y = _astSemiMajAxis[j] * _orbitScale * Mathf.Sin (_astInclinaison[j]) * Mathf.Cos (rot);
-		// float z = _astSemiMajAxis[j] * _orbitScale * Mathf.Sin (rot);
 		
 		float firstMember = _astSemiMajAxis[j] * _orbitScale * Mathf.Cos (rot);
 		float secondMember = _astSemiMajAxis[j] * _orbitScale * Mathf.Sin (rot);
+		Vector3 spacePos = _astPlaneOrigin + firstMember * _astPlaneRight + secondMember * _astPlaneBack;
 
-		float x = _astPlaneCenter.x + firstMember * _astPlaneRight.x + secondMember * _astPlaneBack.x;
-		float y = _astPlaneCenter.y + firstMember * _astPlaneRight.y + secondMember * _astPlaneBack.y;
-		float z = _astPlaneCenter.z + firstMember * _astPlaneRight.z + secondMember * _astPlaneBack.z;
-
-		return new Vector3(x, y, z);
+		return spacePos;
 	}	
 
 	private float ComputeScale(int j, Vector3 camPos){
@@ -130,6 +123,7 @@ public class AsteroidBelt : MonoBehaviour {
 	private void DrawAsteroid(int j, Vector3 astPos, Quaternion camRot, float scale) {
 		
 		// this step seems to take half the script time
+		// would it be possible to only rotate one asteroid and then base all the other on the same rotation?
 		//////////////////
 		_vert1 = astPos + (camRot * _vertOffset1[j] * scale);
 		_vert2 = astPos + (camRot * _vertOffset2[j] * scale);
