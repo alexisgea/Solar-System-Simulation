@@ -145,7 +145,7 @@ public class OrbitalBody : MonoBehaviour
     /// Then using the GL.Lines to draw a line between each point.
     private void DrawPath()
     {
-        const float PathDetail = 0.05f;
+        const float PathDetail = 0.05f;  // TODO improve with size of orbit and distance/view to cam
 
         GL.PushMatrix();
         _line.color = uiVisual;

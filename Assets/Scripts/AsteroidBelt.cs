@@ -15,8 +15,8 @@ public class AsteroidBelt : MonoBehaviour {
 	private float _eccentricityRange;	
 	[SerializeField]
 	private float _asteroidRadius = 1f;
-	[SerializeField][Range(3,6)]
-	private int _asteroidComplexity = 3;
+	[SerializeField][Range(2,6)]
+	private int _asteroidComplexity = 2;
 	[SerializeField]
 	private Material _beltMaterial;
 
@@ -97,9 +97,9 @@ public class AsteroidBelt : MonoBehaviour {
 		// this step seems to take half the script time
 		// would it be possible to only rotate one asteroid and then base all the other on the same rotation?
 		//////////////////
-		_vert1 = astPos + (camRot * _asteroids[i].Shape[0] * scale);
-		_vert2 = astPos + (camRot * _asteroids[i].Shape[1] * scale);
-		_vert3 = astPos + (camRot * _asteroids[i].Shape[2] * scale);
+		_vert1 = astPos /*+ (camRot * _asteroids[i].Shape[0] * scale)*/;
+		_vert2 = astPos + (camRot * _asteroids[i].Shape[0] * scale);
+		_vert3 = astPos + (camRot * _asteroids[i].Shape[1] * scale);
 		//////////////////
 
 		GL.Begin(GL.TRIANGLES);
@@ -160,16 +160,17 @@ public class AsteroidBelt : MonoBehaviour {
 	private Asteroid AsteroidGenerator(int semiMajorAxis, float inclination = 0f, float eccentricity = 0f, int complexity = 3, float size = 1f){
 
 		// generate asteroid shape
-		Vector2[] shape = new Vector2[complexity];
-		for(int i=0; i<complexity; i++){
-			float x = Random.Range(size/2, size).RandomSign();
-			float y = Random.Range(size/2, size).RandomSign();
-			shape[i] = new Vector2(x, y);
-		}
+		Vector2[] shape = GetAsteroidShape(size, complexity);
+		// Vector2[] shape = new Vector2[complexity];
+		// shape[0] = new Vector2(-size, 0f);
+		// shape[1] = new Vector2(0f,-size);
+
+		//Debug.Log(shape[0].x + " " + shape[1].x + " " + shape[2].x);
 		
 		// orienting orbit plane // NOT WORKING
 		float perihelionArgument = Random.Range(0f, 2*Mathf.PI);
-		transform.Rotate(new Vector3(inclination, perihelionArgument, 0));
+		transform.Rotate(new Vector3(0, perihelionArgument, 0)); // first the perihelion
+		transform.Rotate(new Vector3(inclination, 0, 0)); // then the inclination, otherwise all inclination are at the same relative place
 
 		// getting transform parameters 
 		Vector3 forward = transform.forward;
@@ -186,6 +187,58 @@ public class AsteroidBelt : MonoBehaviour {
 		
 		// generating asteroid
 		return new Asteroid(shape, center, forward, right, semiMajorAxis, semiMinorAxis, initialArgument, period);
+	}
+
+
+	private Vector2[] GetAsteroidShape(float size, int complexity){
+
+		// the first point is 0,0 (one less rotation this way)
+		// all possible triangle forms can be made in the 2 consécutif quadrant
+		// the triangle has to be in clock order
+		// thus we take one second random point, anywhere, whith a minimum length
+		// this decides what other quadrant are then open to use ¨
+		// finally we check the last point is conform
+
+		bool shapeIsCorrect = false;
+		int safety = 0;
+
+		float magMin = size / 5;
+		Vector2[] shape = new Vector2[complexity];
+
+		do{
+			shape[0] = new Vector2(Random.Range(-size, size), Random.Range(-size, size));
+			
+			safety += 1;
+		} while (shape[0].magnitude < magMin && shape[0].y != 0 && shape[0].x != 0 && safety < 20);
+		if(safety == 20){
+				Debug.LogWarning("Exited asteroid 1st vector generation, magnitude check not accepted.");
+			}
+
+		safety = 0;
+		do {
+
+			if(shape[0].y > 0 && shape[0].x > 0)
+				shape[1] = new Vector2(Random.Range(0f, size), Random.Range(-size, 0f));
+			else if(shape[0].y > 0 && shape[0].x < 0)
+				shape[1] = new Vector2(Random.Range(0f, size), Random.Range(0f, size));
+			else if(shape[0].y < 0 && shape[0].x > 0)
+				shape[1] = new Vector2(Random.Range(-size, 0f), Random.Range(-size, 0f));
+			else if(shape[0].y < 0 && shape[0].x < 0)
+				shape[1] = new Vector2(Random.Range(-size, 0f), Random.Range(0f, size));
+
+			bool magCheck = (shape[1].magnitude > magMin) && ((shape[1] - shape[0]).magnitude > magMin);
+
+			bool angleCheck = Vector2.Dot(shape[0].normalized, shape[1].normalized) > 0.1 && Vector2.Dot(shape[0].normalized, shape[1].normalized) < 0.9;
+
+			shapeIsCorrect = magCheck && angleCheck;
+
+			safety += 1;
+		} while (!shapeIsCorrect && safety < 50);
+		if(safety == 50){
+				Debug.LogWarning("Exited asteroid 2nd vector generation." /*magCheck:" + magCheck + " angleCheck:" + angleCheck + ":" + Vector2.Dot(shape[0].normalized, shape[1].normalized)*/);
+			}
+
+		return shape;
 	}
 
 }
