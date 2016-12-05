@@ -7,6 +7,11 @@ public static class ExtensionMethods {
 		int sign = Random.value < .5? 1 : -1;
 		return sign * number;
 	}
+
+    public static int RandomSign(this int number){
+		int sign = Random.value < .5? 1 : -1;
+		return sign * number;
+	}
 	
 	public static void ResetTransformation(this Transform trans)
     {

@@ -1644,6 +1644,35 @@ Transform:
   m_PrefabParentObject: {fileID: 4000012883709338, guid: 2b54d9d4ca10a104a827f60900e85cf2,
     type: 2}
   m_PrefabInternal: {fileID: 1279427541}
+--- !u!1 &484537183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 484537184}
+  m_Layer: 0
+  m_Name: AsteroidBelt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &484537184
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 484537183}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2108180876}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &498463515
 GameObject:
   m_ObjectHideFlags: 0
@@ -2525,6 +2554,54 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 856319779}
+--- !u!1 &917533652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 917533653}
+  - component: {fileID: 917533654}
+  m_Layer: 8
+  m_Name: SubBelt (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &917533653
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 917533652}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1983127956}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &917533654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 917533652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c478dbede607047976124a9a0b9b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _beltPopulation: 300
+  _minRange: 327800
+  _maxRange: 400000
+  _inclinationRange: 10
+  _eccentricityRange: 0.2
+  _asteroidRadius: 0.012
+  _asteroidVertices: 2
+  _beltMaterial: {fileID: 2100000, guid: d55b2a5978ae36a48b25b2b95a28394b, type: 2}
 --- !u!1 &933970602 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000012175449282, guid: 2b54d9d4ca10a104a827f60900e85cf2,
@@ -2820,6 +2897,54 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1029978750}
+--- !u!1 &1075236308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1075236309}
+  - component: {fileID: 1075236310}
+  m_Layer: 8
+  m_Name: SubBelt (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1075236309
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1075236308}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1983127956}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1075236310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1075236308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c478dbede607047976124a9a0b9b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _beltPopulation: 300
+  _minRange: 400000
+  _maxRange: 476800
+  _inclinationRange: 10
+  _eccentricityRange: 0.2
+  _asteroidRadius: 0.013
+  _asteroidVertices: 2
+  _beltMaterial: {fileID: 2100000, guid: 3cf2b1c081bb1574f8e7bea604d9f7fd, type: 2}
 --- !u!1 &1075891479
 GameObject:
   m_ObjectHideFlags: 0
@@ -2909,7 +3034,7 @@ GameObject:
   - component: {fileID: 1185488606}
   - component: {fileID: 1185488605}
   m_Layer: 8
-  m_Name: AsteroidBelt (1)
+  m_Name: SubBelt (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2926,26 +3051,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c478dbede607047976124a9a0b9b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _beltPopulation: 1000
-  _maxRange: 476800
+  _beltPopulation: 300
   _minRange: 327800
+  _maxRange: 476800
   _inclinationRange: 10
-  _eccentricityRange: 0
-  _asteroidRadius: 0.02
-  _asteroidComplexity: 2
-  _beltMaterial: {fileID: 2100000, guid: d55b2a5978ae36a48b25b2b95a28394b, type: 2}
+  _eccentricityRange: 0.2
+  _asteroidRadius: 0.008
+  _asteroidVertices: 3
+  _beltMaterial: {fileID: 2100000, guid: e1f242d0413d3af4e975779bf45c594e, type: 2}
 --- !u!4 &1185488606
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1185488604}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1983127956}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1187265794
 GameObject:
@@ -4097,6 +4222,37 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000013060355054, guid: 2b54d9d4ca10a104a827f60900e85cf2,
     type: 2}
   m_PrefabInternal: {fileID: 2079665045}
+--- !u!1 &1983127955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1983127956}
+  m_Layer: 0
+  m_Name: KuiperBelt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1983127956
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1983127955}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1185488606}
+  - {fileID: 917533653}
+  - {fileID: 1075236309}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1987229023
 GameObject:
   m_ObjectHideFlags: 0
@@ -4691,7 +4847,7 @@ GameObject:
   - component: {fileID: 2108180876}
   - component: {fileID: 2108180875}
   m_Layer: 8
-  m_Name: AsteroidBelt (2)
+  m_Name: SubBelt (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4708,26 +4864,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c478dbede607047976124a9a0b9b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _beltPopulation: 2000
-  _maxRange: 8000000
+  _beltPopulation: 1000
   _minRange: 5000000
-  _inclinationRange: 10
-  _eccentricityRange: 0
-  _asteroidRadius: 0.02
-  _asteroidComplexity: 2
-  _beltMaterial: {fileID: 2100000, guid: d55b2a5978ae36a48b25b2b95a28394b, type: 2}
+  _maxRange: 8000000
+  _inclinationRange: 20
+  _eccentricityRange: 0.3
+  _asteroidRadius: 0.01
+  _asteroidVertices: 2
+  _beltMaterial: {fileID: 2100000, guid: e1f242d0413d3af4e975779bf45c594e, type: 2}
 --- !u!4 &2108180876
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2108180874}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 484537184}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2135524994
 GameObject:
