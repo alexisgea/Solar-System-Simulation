@@ -31,6 +31,7 @@ public class ControlIntentions : MonoBehaviour {
     {
         if (_instance != null && _instance != this)
         {
+            Debug.LogError("Double instance of ControlIntentions Singleton!");
             Destroy(this.gameObject);
         } else {
             _instance = this;
@@ -46,8 +47,8 @@ public class ControlIntentions : MonoBehaviour {
 		if(Scaling != null)
             Scaling.Invoke(scale, value);
     }
-    public event Action<string, int> CamRotation;
-	private void RaiseCamRotation(string axe, int dir){
+    public event Action<string, float> CamRotation;
+	private void RaiseCamRotation(string axe, float dir){
 		if(CamRotation != null)
             CamRotation.Invoke(axe, dir);
 	}
@@ -82,7 +83,12 @@ public class ControlIntentions : MonoBehaviour {
     // - scaling can only go back and forth from Game
     // - menu and scaling can't switch directly together
     void Update () {
-		switch(_state){
+        //Debug.Log("key code escape " + Input.GetKeyDown(KeyCode.Escape));
+        //Debug.Log("key named menu " + Input.GetKeyDown("menu"));
+        //Debug.Log("key named Cancel " + Input.GetKeyDown("Cancel"));
+        //Debug.Log("key named escape " + Input.GetKeyDown("scape"));
+
+        switch(_state){
 			case State.Game:
                 CheckGameInput();
                 break;
@@ -98,25 +104,19 @@ public class ControlIntentions : MonoBehaviour {
     void CheckGameInput() {
 
         // check condition for changing state
-        if (Input.GetKeyDown(KeyCode.Escape) || SimulatedInput == "escape") {
+        if (Input.GetKeyDown(KeyCode.Escape) || SimulatedInput == "escape" || Input.GetButtonDown("menu")) {
             _state = State.Menu;
             RaiseMenuCall(true);
-        }
-        else if (Input.GetKeyDown("scale time") || Input.GetKeyDown("scale orbits") || Input.GetKeyDown("scale bodies"))
+        } else if (Input.GetButtonDown("scale time") || Input.GetButtonDown("scale orbits") || Input.GetButtonDown("scale bodies"))
             _state = State.Scaling;
 
-
         // Rotation of the cam around the center horizontally (on the y axis of Axis).
-        if (Input.GetKey("rotate cam right"))
-            RaiseCamRotation("horizontal", -1);
-        else if (Input.GetKey("rotate cam left"))
-            RaiseCamRotation("horizontal", 1);
+        if (Input.GetAxis("rotate cam horizontally") != 0)
+            RaiseCamRotation("horizontal", Input.GetAxis("rotate cam horizontally"));
 
         // Rotation of the cam around the center vertically (on the x axis of Pole).
-        if (Input.GetKey("rotate cam up"))
-            RaiseCamRotation("vertical", 1);
-        else if (Input.GetKey("rotate cam down"))
-            RaiseCamRotation("vertical", -1);
+        if (Input.GetAxis("rotate cam vertically") != 0)
+            RaiseCamRotation("vertical", Input.GetAxis("rotate cam vertically"));
 		
 		// Translation of the cam on the z axis (from and away)
 		if (Input.GetAxis("translate cam (zoom)") != 0)
@@ -132,7 +132,7 @@ public class ControlIntentions : MonoBehaviour {
         // hardcoded to always be able to access menus and quit
         // TODO Check for button pressed cases
 
-        if (Input.GetKeyDown(KeyCode.Escape) || SimulatedInput == "escape") {
+        if (Input.GetKeyDown(KeyCode.Escape) || SimulatedInput == "escape" || Input.GetButtonDown("menu")) {
             _state = State.Game;
 			RaiseMenuCall(false);
         }
@@ -141,15 +141,15 @@ public class ControlIntentions : MonoBehaviour {
 	void CheckScalingInput(){
 
         // check condition for changing state
-        if (!Input.GetKey("scale time") && !Input.GetKey("scale orbits") && !Input.GetKey("scale bodies"))
+        if (!Input.GetButton("scale time") && !Input.GetButton("scale orbits") && !Input.GetButton("scale bodies"))
 			_state = State.Game;
 		
 		// check user input
-        if (Input.GetKey("scale bodies"))
+        if (Input.GetButton("scale bodies"))
             RaiseScaling("body", Input.GetAxis("scale axis")); //"scale axis" is/should be the "Mouse ScrollWheel"
-        else if (Input.GetKey("scale orbits"))
+        else if (Input.GetButton("scale orbits"))
             RaiseScaling("orbit", Input.GetAxis("scale axis"));
-        else if (Input.GetKey("scale time"))
+        else if (Input.GetButton("scale time"))
             RaiseScaling("time", Input.GetAxis("scale axis"));
 	}
 

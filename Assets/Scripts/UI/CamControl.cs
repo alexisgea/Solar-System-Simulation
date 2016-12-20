@@ -49,11 +49,17 @@ public class CamControl : MonoBehaviour
 
     private void Start()
     {
+        ControlIntentions.Instance.CamRotation += RotateCam;
+
         // Set the first body transform to istelf (null) to avoid error with cam zoom function.
         _selectedBody = transform;
 
         FindObjectOfType<InterfaceManager>().FullStart += ControlToggle;
         FindObjectOfType<InterfaceManager>().FullStart += CamInitialization;
+    }
+
+    private void OnDestroy() {
+        ControlIntentions.Instance.CamRotation -= RotateCam;
     }
 
     private void Update()
@@ -66,7 +72,7 @@ public class CamControl : MonoBehaviour
 
         if (_userControl)
         {
-            checkRotation();
+            //checkRotation();
             checkZoom();
             checkSelection();
 
@@ -119,25 +125,45 @@ public class CamControl : MonoBehaviour
             _initializeCam = false;
     }
 
+
     /// <summary>
     /// Checks for rotation input and update cam.
     /// </summary>
-    private void checkRotation()
+    private void RotateCam(string axis, float dir)
     {
-        
-
         // Rotation of the cam around the center horizontally (on the y axis of Axis).
-        if (Input.GetKey(KeyCode.D))
-            transform.Rotate(new Vector3(0, -CamSpeed * Time.deltaTime, 0));
-        else if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.A))
-            transform.Rotate(new Vector3(0, CamSpeed * Time.deltaTime, 0));
+        if (axis == "horizontal")
+            transform.Rotate(new Vector3(0, dir * CamSpeed * Time.deltaTime, 0));
 
         // Rotation of the cam around the center vertically (on the x axis of Pole).
-        if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.W))
-            pole.transform.Rotate(new Vector3(CamSpeed * Time.deltaTime, 0, 0));
-        else if (Input.GetKey(KeyCode.S))
-            pole.transform.Rotate(new Vector3(-CamSpeed * Time.deltaTime, 0, 0));
+        else if (axis == "vertical")
+            pole.transform.Rotate(new Vector3(dir * CamSpeed * Time.deltaTime, 0, 0));
+        
+        // And just to be sure
+        else
+            Debug.LogWarning("Cam rotation called on unknown axis: " + axis);
     }
+
+
+    // /// <summary>
+    // /// Checks for rotation input and update cam.
+    // /// </summary>
+    // private void checkRotation()
+    // {
+        
+
+    //     // Rotation of the cam around the center horizontally (on the y axis of Axis).
+    //     if (Input.GetKey(KeyCode.D))
+    //         transform.Rotate(new Vector3(0, -CamSpeed * Time.deltaTime, 0));
+    //     else if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.A))
+    //         transform.Rotate(new Vector3(0, CamSpeed * Time.deltaTime, 0));
+
+    //     // Rotation of the cam around the center vertically (on the x axis of Pole).
+    //     if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.W))
+    //         pole.transform.Rotate(new Vector3(CamSpeed * Time.deltaTime, 0, 0));
+    //     else if (Input.GetKey(KeyCode.S))
+    //         pole.transform.Rotate(new Vector3(-CamSpeed * Time.deltaTime, 0, 0));
+    // }
 
     /// <summary>
     /// Checks for zoom input and update the cam position.
