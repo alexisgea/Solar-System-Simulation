@@ -3,7 +3,7 @@ using System;
 
 public class ControlIntentions : MonoBehaviour {
 	
-	// Singleton instatiation
+	// Singleton instantiation
 	private static ControlIntentions _instance;
 	public static ControlIntentions Instance {
 		get {
@@ -14,7 +14,20 @@ public class ControlIntentions : MonoBehaviour {
         }
 	}
 
-	private void Awake()
+    private static String _simulatedInput = "";
+    public static String SimulatedInput {
+        set {
+            _simulatedInput = value;
+        }
+        get {
+            string _key = _simulatedInput;
+            _simulatedInput = "";
+            return _key;
+        }
+    }
+
+
+    private void Awake()
     {
         if (_instance != null && _instance != this)
         {
@@ -85,7 +98,7 @@ public class ControlIntentions : MonoBehaviour {
     void CheckGameInput() {
 
         // check condition for changing state
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape) || SimulatedInput == "escape") {
             _state = State.Menu;
             RaiseMenuCall(true);
         }
@@ -118,7 +131,8 @@ public class ControlIntentions : MonoBehaviour {
         // check condition for changing state
         // hardcoded to always be able to access menus and quit
         // TODO Check for button pressed cases
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+
+        if (Input.GetKeyDown(KeyCode.Escape) || SimulatedInput == "escape") {
             _state = State.Game;
 			RaiseMenuCall(false);
         }

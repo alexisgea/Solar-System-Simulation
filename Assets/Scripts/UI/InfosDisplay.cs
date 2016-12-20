@@ -12,21 +12,19 @@ public class InfosDisplay : MonoBehaviour
     private void Start()
     {
         _infosDisplayAnimator = GetComponent<Animator>();
+        ControlIntentions.Instance.MenuCall += MenuCall;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            CheckControl();
+    private void OnDestroy() {
+        ControlIntentions.Instance.MenuCall -= MenuCall;
     }
 
     /// <summary>
     /// Check if the player is openeing of closeing the menu.
     /// Plays the associated sound.
     /// </summary>
-    public void CheckControl()
-    {
-        _infosDisplayAnimator.SetBool("opened", !_infosDisplayAnimator.GetBool("opened"));
+    private void MenuCall(bool open) {
+        _infosDisplayAnimator.SetBool("opened", open);
 
         if (_infosDisplayAnimator.GetBool("opened"))
             GetComponent<AudioSource>().PlayOneShot(_open);
@@ -34,11 +32,14 @@ public class InfosDisplay : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(_close);
     }
 
+    public void MenuCall(){
+        ControlIntentions.SimulatedInput = "escape";
+    }
+
     /// <summary>
     /// Quits the app.
     /// </summary>
-    public void QuitApp()
-    {
+    public void QuitApp() {
         Application.Quit();
     }
 }
