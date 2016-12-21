@@ -50,6 +50,8 @@ public class CamControl : MonoBehaviour
     private void Start()
     {
         ControlIntentions.Instance.CamRotation += RotateCam;
+        ControlIntentions.Instance.CamTranslation += TranslateCam;
+        ControlIntentions.Instance.FocusSelection += CheckSelection;
 
         // Set the first body transform to istelf (null) to avoid error with cam zoom function.
         _selectedBody = transform;
@@ -60,6 +62,8 @@ public class CamControl : MonoBehaviour
 
     private void OnDestroy() {
         ControlIntentions.Instance.CamRotation -= RotateCam;
+        ControlIntentions.Instance.CamTranslation -= TranslateCam;
+        ControlIntentions.Instance.FocusSelection -= CheckSelection;
     }
 
     private void Update()
@@ -72,10 +76,6 @@ public class CamControl : MonoBehaviour
 
         if (_userControl)
         {
-            //checkRotation();
-            checkZoom();
-            checkSelection();
-
             // If the player starts moving before cam panning is finished we let him do.
             if (_initializeCam && Input.anyKey || Input.GetAxis("Mouse ScrollWheel") != 0)
                 _initializeCam = false;
@@ -125,10 +125,6 @@ public class CamControl : MonoBehaviour
             _initializeCam = false;
     }
 
-
-    /// <summary>
-    /// Checks for rotation input and update cam.
-    /// </summary>
     private void RotateCam(string axis, float dir)
     {
         // Rotation of the cam around the center horizontally (on the y axis of Axis).
@@ -144,86 +140,55 @@ public class CamControl : MonoBehaviour
             Debug.LogWarning("Cam rotation called on unknown axis: " + axis);
     }
 
-
-    // /// <summary>
-    // /// Checks for rotation input and update cam.
-    // /// </summary>
-    // private void checkRotation()
-    // {
-        
-
-    //     // Rotation of the cam around the center horizontally (on the y axis of Axis).
-    //     if (Input.GetKey(KeyCode.D))
-    //         transform.Rotate(new Vector3(0, -CamSpeed * Time.deltaTime, 0));
-    //     else if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.A))
-    //         transform.Rotate(new Vector3(0, CamSpeed * Time.deltaTime, 0));
-
-    //     // Rotation of the cam around the center vertically (on the x axis of Pole).
-    //     if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.W))
-    //         pole.transform.Rotate(new Vector3(CamSpeed * Time.deltaTime, 0, 0));
-    //     else if (Input.GetKey(KeyCode.S))
-    //         pole.transform.Rotate(new Vector3(-CamSpeed * Time.deltaTime, 0, 0));
-    // }
-
-    /// <summary>
-    /// Checks for zoom input and update the cam position.
-    /// </summary>
-    private void checkZoom()
-    {
-        if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.LeftControl) && !Input.GetKey(KeyCode.Space))
-        {
-            Vector3 pos = cam.transform.localPosition;
-            float Z = pos.z + ZoomSpeed * Input.GetAxis("Mouse ScrollWheel") * cam.transform.localPosition.magnitude;
-            pos.z = Mathf.Clamp(Z, ZoomMax, ZoomMin);
-            cam.transform.localPosition = pos;
-        }
+    private void TranslateCam(float translation) {
+        Vector3 pos = cam.transform.localPosition;
+        float Z = pos.z + ZoomSpeed * translation * cam.transform.localPosition.magnitude;
+        pos.z = Mathf.Clamp(Z, ZoomMax, ZoomMin);
+        cam.transform.localPosition = pos;
     }
 
     /// <summary>
     /// Checks if a new celestial body has been selected with a raycast.
     /// In both case if yes we send a signal and play a selection sound.
     /// </summary>
-    private void checkSelection()
+    private void CheckSelection(Vector3 selectorPos)
     {
-        if (Input.GetMouseButtonDown(0))
+        // first we cast a Ray on the UI to see if we catched one of the icon
+        Ray ray = cam.ScreenPointToRay(selectorPos);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, RayLength))
         {
-            // first we cast a Ray on the UI to see if we catched one of the icon
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, RayLength))
+            if (hit.collider != null)
             {
-                if (hit.collider != null)
-                {
-                    _selectedBody = hit.collider.transform;
+                _selectedBody = hit.collider.transform;
 
-                    if (Focusing != null)
-                        Focusing(_selectedBody);
+                if (Focusing != null)
+                    Focusing(_selectedBody);
 
-                    if (!GetComponent<AudioSource>().isPlaying)
-                        GetComponent<AudioSource>().PlayOneShot(selectionSound);
-                }
-
-                // if we didn't catch an Icon, we cast a 3D ray to catch a colission sphere on one of the body
+                if (!GetComponent<AudioSource>().isPlaying)
+                    GetComponent<AudioSource>().PlayOneShot(selectionSound);
             }
-            else {
-                PointerEventData pointer = new PointerEventData(EventSystem.current);
-                pointer.position = Input.mousePosition;
 
-                List<RaycastResult> raycastResults = new List<RaycastResult>();
-                EventSystem.current.RaycastAll(pointer, raycastResults);
+            // if we didn't catch an Icon, we cast a 3D ray to catch a colission sphere on one of the body
+        }
+        else {
+            PointerEventData pointer = new PointerEventData(EventSystem.current);
+            pointer.position = selectorPos;
 
-                if (raycastResults.Count > 0 && raycastResults[0].gameObject.tag == "BodyLabel")
-                {
-                    // As the UI is on top it should always be on 0? Or something like that, to be checked.
-                    _selectedBody = raycastResults[0].gameObject.GetComponent<BodyLabel>().Owner.transform;
+            List<RaycastResult> raycastResults = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointer, raycastResults);
 
-                    if (Focusing != null)
-                        Focusing(_selectedBody);
+            if (raycastResults.Count > 0 && raycastResults[0].gameObject.tag == "BodyLabel")
+            {
+                // As the UI is on top it should always be on 0? Or something like that, to be checked.
+                _selectedBody = raycastResults[0].gameObject.GetComponent<BodyLabel>().Owner.transform;
 
-                    if (!GetComponent<AudioSource>().isPlaying)
-                        GetComponent<AudioSource>().PlayOneShot(selectionSound);
-                }
+                if (Focusing != null)
+                    Focusing(_selectedBody);
+
+                if (!GetComponent<AudioSource>().isPlaying)
+                    GetComponent<AudioSource>().PlayOneShot(selectionSound);
             }
         }
     }
