@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System;
 
+// TODO implement a singleton inheritance
+
+// This calss handles all control input and check the game state
+// to deduce the input intention and send a signal to whoever is interested
 public class ControlIntentions : MonoBehaviour {
-	
+
 	// Singleton instantiation
 	private static ControlIntentions _instance;
 	public static ControlIntentions Instance {
@@ -14,6 +18,8 @@ public class ControlIntentions : MonoBehaviour {
         }
 	}
 
+    // TODO is it possible to completely block the private var?
+    // Property to let the programe create fake key press input
     private static String _simulatedInput = "";
     public static String SimulatedInput {
         set {
@@ -26,7 +32,7 @@ public class ControlIntentions : MonoBehaviour {
         }
     }
 
-
+    // checks the singleton instance (TODO remove after inheritance)
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -38,7 +44,7 @@ public class ControlIntentions : MonoBehaviour {
         }
     }
 
-
+    // Game/input state var and related events
     enum State { Game, Menu, Scaling };
     private State _state = State.Menu;
 
