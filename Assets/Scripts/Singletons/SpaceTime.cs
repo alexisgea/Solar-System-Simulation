@@ -28,21 +28,21 @@ public class SpaceTime : MonoBehaviour {
 
     public float BodyScale {
         get { return _bodyScale; }
-        private set { _bodyScale = value; }
+        private set { _bodyScale = Mathf.Clamp(value, MinDefaultScale, MaxDefaultScale); }
     }
 
     private float _orbitScale;
 
     public float OrbitScale {
         get { return _orbitScale; }
-        private set { _orbitScale = value; }
+        private set { _orbitScale = Mathf.Clamp(value, MinDefaultScale, MaxDefaultScale); }
     }
 
     private float _timeScale;
 
     public float TimeScale {
         get { return _timeScale; }
-        private set { _timeScale = value; }
+        private set { _timeScale = Mathf.Clamp(value, MinTimeScale, MaxTimeScale); }
     }
 
     private double _elapsedTime = 0;
@@ -51,33 +51,56 @@ public class SpaceTime : MonoBehaviour {
         private set { _elapsedTime = value; }
     }
 
+    public enum Scale{Time, Orbit, Body};
+
 	// constant parameters
     private const float BaseBodyScale = 0.01f;
     private const float BaseOrbitScale = 0.0001f;
     private const float BaseTimeScale = 0.5f;
     private const float MinTimeScale = 0.001f;
     private const float MaxTimeScale = 500.0f;
-    private const float MinDefaultScale = 0.0001f;
+    private const float MinDefaultScale = 0.0001f; // probably replace default by specifics for body and orbits
     private const float MaxDefaultScale = 1.0f;
 
 	// SpaceTime Signals
 
 	private void Start() {
+        ControlIntentions.Instance.Scaling += UpdateScale;
         ResetAllScales();
+    }
+
+    private void OnDestroy() {
+        ControlIntentions.Instance.Scaling -= UpdateScale;
     }
 	
 	private void Update() {
         ElapsedTime += Time.deltaTime * TimeScale;
     }
 
-	private float UpdateScale(string which, float scale, float min = MinDefaultScale, float max = MaxDefaultScale) {
-        scale *= (1 + Input.GetAxis("Mouse ScrollWheel"));
-        scale = Mathf.Clamp(scale, min, max);
+	private void UpdateScale(Scale scale, float value) {
 
-        return scale;
+        switch(scale){
+            
+            case Scale.Body:
+            BodyScale *= 1f + value;
+            break;
+
+            case Scale.Orbit:
+            OrbitScale *= 1f + value;
+            break;
+
+            case Scale.Time:
+            TimeScale *= 1f + value;
+            break;
+
+            default:
+            Debug.LogWarning("Unknown scale when updating scales.");
+            break;
+
+        }
     }
 
-	private void ResetAllScales() {
+	public void ResetAllScales() {
         BodyScale = BaseBodyScale;
         OrbitScale = BaseOrbitScale;
         TimeScale = BaseTimeScale;

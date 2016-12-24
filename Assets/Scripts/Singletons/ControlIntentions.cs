@@ -45,11 +45,11 @@ public class ControlIntentions : MonoBehaviour {
     }
 
     // Game/input state var and related events
-    enum State { Game, Menu, Scaling };
+    public enum State { Game, Menu, Scaling };
     private State _state = State.Menu;
 
-	public event Action<string, float> Scaling;
-	private void RaiseScaling(string scale, float value){
+	public event Action<SpaceTime.Scale, float> Scaling;
+	private void RaiseScaling(SpaceTime.Scale scale, float value){
 		if(Scaling != null)
             Scaling.Invoke(scale, value);
     }
@@ -104,6 +104,9 @@ public class ControlIntentions : MonoBehaviour {
 			case State.Scaling:
                 CheckScalingInput();
                 break;
+            default:
+                Debug.LogWarning("Unknown game state when checking for input.");
+                break;
         }
     }
 
@@ -152,11 +155,11 @@ public class ControlIntentions : MonoBehaviour {
 		
 		// check user input
         if (Input.GetButton("scale bodies"))
-            RaiseScaling("body", Input.GetAxis("scale axis")); //"scale axis" is/should be the "Mouse ScrollWheel"
+            RaiseScaling(SpaceTime.Scale.Body, Input.GetAxis("scale axis")); //"scale axis" is/should be the "Mouse ScrollWheel"
         else if (Input.GetButton("scale orbits"))
-            RaiseScaling("orbit", Input.GetAxis("scale axis"));
+            RaiseScaling(SpaceTime.Scale.Orbit, Input.GetAxis("scale axis"));
         else if (Input.GetButton("scale time"))
-            RaiseScaling("time", Input.GetAxis("scale axis"));
+            RaiseScaling(SpaceTime.Scale.Time, Input.GetAxis("scale axis"));
 	}
 
 }
