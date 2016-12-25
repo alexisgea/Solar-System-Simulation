@@ -73,16 +73,13 @@ public class ControlIntentions : MonoBehaviour {
 		if(MenuCall != null)
             MenuCall.Invoke(call);
     }
-    //public event Action<bool> PauseGame;
-    public event Action PauseGame;
-    
-	private void RaisePauseGame(){
-        //_gamePaused = !_gamePaused;
+    public event Action<bool> PauseGame;
+	private void RaisePauseGame(bool pause){
+        _gamePaused = pause;
 		if(PauseGame != null)
-            PauseGame.Invoke();
-            //PauseGame.Invoke(_gamePaused);
+            PauseGame.Invoke(_gamePaused);
     }
-    //private bool _gamePaused = false;
+    private bool _gamePaused = false;
 
 
 
@@ -94,11 +91,6 @@ public class ControlIntentions : MonoBehaviour {
     // - scaling can only go back and forth from Game
     // - menu and scaling can't switch directly together
     void Update () {
-        //Debug.Log("key code escape " + Input.GetKeyDown(KeyCode.Escape));
-        //Debug.Log("key named menu " + Input.GetKeyDown("menu"));
-        //Debug.Log("key named Cancel " + Input.GetKeyDown("Cancel"));
-        //Debug.Log("key named escape " + Input.GetKeyDown("scape"));
-
         switch(_state){
 			case State.Game:
                 CheckGameInput();
@@ -120,14 +112,14 @@ public class ControlIntentions : MonoBehaviour {
         // check condition for changing state
         if (Input.GetKeyDown(KeyCode.Escape) || SimulatedInput == "escape" || Input.GetButtonDown("menu")) {
             _state = State.Menu;
-            RaisePauseGame();
+            RaisePauseGame(true);
             RaiseMenuCall(true);
         } else if ((Input.GetButtonDown("scale time") || Input.GetButtonDown("scale orbits") || Input.GetButtonDown("scale bodies"))){
             _state = State.Scaling;
         }
         
         if (Input.GetButtonDown("pause game")){
-           RaisePauseGame();
+           RaisePauseGame(!_gamePaused);
         }
         
         // Rotation of the cam around the center horizontally (on the y axis of Axis).

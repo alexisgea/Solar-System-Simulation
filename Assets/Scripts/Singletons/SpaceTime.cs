@@ -47,16 +47,19 @@ public class SpaceTime : MonoBehaviour {
         }
     }
 
+    private bool _timePause = false;
     private float _lastTimeScale = BaseTimeScale;
     private float _timeScale = BaseTimeScale;
 
     public float TimeScale {
         get { return _timeScale; }
         private set { 
-            _timeScale = Mathf.Clamp(value, MinTimeScale, MaxTimeScale);
-            if(ScaleUpdated != null)
-                ScaleUpdated.Invoke(Scale.Time, _timeScale);
+            if(!_timePause){
+                _timeScale = Mathf.Clamp(value, MinTimeScale, MaxTimeScale);
+                if(ScaleUpdated != null)
+                    ScaleUpdated.Invoke(Scale.Time, _timeScale);
             }
+        }
     }
 
     private double _elapsedTime = 0;
@@ -86,12 +89,12 @@ public class SpaceTime : MonoBehaviour {
 
 	private void Start() {
         ControlIntentions.Instance.Scaling += UpdateScale;
-        // ControlIntentions.Instance.PauseGame += PauseTime;        
+        ControlIntentions.Instance.PauseGame += PauseTime;        
     }
 
     private void OnDestroy() {
         ControlIntentions.Instance.Scaling -= UpdateScale;
-        // ControlIntentions.Instance.PauseGame -= PauseTime;                
+        ControlIntentions.Instance.PauseGame -= PauseTime;                
     }
 	
 	private void Update() {
@@ -120,13 +123,16 @@ public class SpaceTime : MonoBehaviour {
         }
     }
 
-    public void PauseTime(){
-        if(TimeScale != 0f){
+    public void PauseTime(bool pause){
+        if(pause){
             _lastTimeScale = TimeScale;
-            TimeScale = 0f;
+            TimeScale = MinTimeScale;
+            _timePause = pause;
         } else {
+            _timePause = pause;
             TimeScale = _lastTimeScale;
         }
+
     }
 
 	public void ResetAllScales() {
