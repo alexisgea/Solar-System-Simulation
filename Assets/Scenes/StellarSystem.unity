@@ -1596,7 +1596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -479}
+  m_AnchoredPosition: {x: 0, y: -475}
   m_SizeDelta: {x: -20, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &427838747
@@ -1633,7 +1633,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "CONTROLS\n- Camera\t Orbit\t\tWASD (or ZQSD)\n- Camera Zoom\t\tMouse wheel\n-
     Time\t scale\t\t\t\tMouse wheel + space bar\n- Orbit scale\t\t\t\tMouse wheel
-    + left ctrl\n- Body scale\t\t\t\tMouse wheel + left shift\n- Infos menu\t\t\t\tEscape"
+    + left ctrl\n- Body scale\t\t\t\tMouse wheel + left shift\n- Pause Time\t\t\tP\n-
+    Infos menu\t\t\t\tEscape"
 --- !u!222 &427838748
 CanvasRenderer:
   m_ObjectHideFlags: 0
