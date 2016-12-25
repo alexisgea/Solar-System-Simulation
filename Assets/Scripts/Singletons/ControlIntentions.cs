@@ -73,11 +73,16 @@ public class ControlIntentions : MonoBehaviour {
 		if(MenuCall != null)
             MenuCall.Invoke(call);
     }
-    public event Action<bool> TimePause;
-	private void RaiseTimePause(bool pause){
-		if(TimePause != null)
-            TimePause.Invoke(pause);
+    //public event Action<bool> PauseGame;
+    public event Action PauseGame;
+    
+	private void RaisePauseGame(){
+        //_gamePaused = !_gamePaused;
+		if(PauseGame != null)
+            PauseGame.Invoke();
+            //PauseGame.Invoke(_gamePaused);
     }
+    //private bool _gamePaused = false;
 
 
 
@@ -115,10 +120,16 @@ public class ControlIntentions : MonoBehaviour {
         // check condition for changing state
         if (Input.GetKeyDown(KeyCode.Escape) || SimulatedInput == "escape" || Input.GetButtonDown("menu")) {
             _state = State.Menu;
+            RaisePauseGame();
             RaiseMenuCall(true);
-        } else if (Input.GetButtonDown("scale time") || Input.GetButtonDown("scale orbits") || Input.GetButtonDown("scale bodies"))
+        } else if ((Input.GetButtonDown("scale time") || Input.GetButtonDown("scale orbits") || Input.GetButtonDown("scale bodies"))){
             _state = State.Scaling;
-
+        }
+        
+        if (Input.GetButtonDown("pause game")){
+           RaisePauseGame();
+        }
+        
         // Rotation of the cam around the center horizontally (on the y axis of Axis).
         if (Input.GetAxis("rotate cam horizontally") != 0)
             RaiseCamRotation("horizontal", Input.GetAxis("rotate cam horizontally"));

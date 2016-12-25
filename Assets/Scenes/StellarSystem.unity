@@ -1674,37 +1674,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4000012883709338, guid: 2b54d9d4ca10a104a827f60900e85cf2,
     type: 2}
   m_PrefabInternal: {fileID: 1279427541}
---- !u!1 &484537183
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1080242191086688, guid: 64a48a68491b18a41a56f169aef073cc,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 484537184}
-  m_Layer: 0
-  m_Name: AsteroidBelt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &484537184
+--- !u!4 &484537184 stripped
 Transform:
-  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 4480788646778370, guid: 64a48a68491b18a41a56f169aef073cc,
     type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 484537183}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2108180876}
-  m_Father: {fileID: 1991514989}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_PrefabInternal: {fileID: 1896753637}
 --- !u!1 &498463515
 GameObject:
   m_ObjectHideFlags: 0
@@ -4318,6 +4292,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1871554908}
+--- !u!1001 &1896753637
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1991514989}
+    m_Modifications:
+    - target: {fileID: 4480788646778370, guid: 64a48a68491b18a41a56f169aef073cc, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4480788646778370, guid: 64a48a68491b18a41a56f169aef073cc, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4480788646778370, guid: 64a48a68491b18a41a56f169aef073cc, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4480788646778370, guid: 64a48a68491b18a41a56f169aef073cc, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4480788646778370, guid: 64a48a68491b18a41a56f169aef073cc, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4480788646778370, guid: 64a48a68491b18a41a56f169aef073cc, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4480788646778370, guid: 64a48a68491b18a41a56f169aef073cc, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4480788646778370, guid: 64a48a68491b18a41a56f169aef073cc, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 64a48a68491b18a41a56f169aef073cc, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1933098085 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000012175449282, guid: 2b54d9d4ca10a104a827f60900e85cf2,
@@ -4347,7 +4363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1983127956
 Transform:
   m_ObjectHideFlags: 0
@@ -4950,57 +4966,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000014174909576, guid: 2b54d9d4ca10a104a827f60900e85cf2,
     type: 2}
   m_PrefabInternal: {fileID: 2079665045}
---- !u!1 &2108180874
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1915860468994854, guid: 64a48a68491b18a41a56f169aef073cc,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2108180876}
-  - component: {fileID: 2108180875}
-  m_Layer: 8
-  m_Name: SubBelt (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2108180875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114124303372643360, guid: 64a48a68491b18a41a56f169aef073cc,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2108180874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89c478dbede607047976124a9a0b9b2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _beltPopulation: 1000
-  _minRange: 5000000
-  _maxRange: 8000000
-  _inclinationRange: 20
-  _eccentricityRange: 0.3
-  _asteroidRadius: 0.01
-  _asteroidVertices: 2
-  _beltMaterial: {fileID: 2100000, guid: e1f242d0413d3af4e975779bf45c594e, type: 2}
---- !u!4 &2108180876
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4398847778395042, guid: 64a48a68491b18a41a56f169aef073cc,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2108180874}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 484537184}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2135524994
 GameObject:
   m_ObjectHideFlags: 0

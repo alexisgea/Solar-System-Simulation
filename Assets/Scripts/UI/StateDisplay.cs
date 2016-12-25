@@ -46,11 +46,17 @@ public class StateDisplay : MonoBehaviour
         switch (scale)
         {
             case SpaceTime.Scale.Time:
-                //_timeScale = value;
                 _timeScaleDisplay.GetComponent<Text>().text = _timeScaleText + value.ToString("F4");
                 break;
+
+            case SpaceTime.Scale.Body:
+                break;
+
+            case SpaceTime.Scale.Orbit:
+                break;
+
             default:
-                Debug.Log("Wrong variable name in StateDiplay.UpdateScale() .");
+                Debug.LogWarning("Wrong variable name in StateDiplay.UpdateScale() .");
                 break;
         }
     }

@@ -53,7 +53,8 @@ public class OrbitalBody : MonoBehaviour
         AdvanceOrbit();
     }
 
-    private void OnDestroy() {
+    private void OnDestroy()
+    {
         SpaceTime.Instance.ScaleUpdated -= UpdateScale;
     }
 
@@ -127,7 +128,7 @@ public class OrbitalBody : MonoBehaviour
     /// Calculates how much the body has moved in it's orbit and rotate it's axis accordingly.
     private void AdvanceOrbit()
     {
-        meanAnomaly += _angularVelocity * Time.deltaTime * SpaceTime.Instance.TimeScale;
+        meanAnomaly += _angularVelocity * SpaceTime.Instance.DeltatTime;
         if (meanAnomaly > 2f * Mathf.PI)  // we keep mean anomaly within 2*Pi
             meanAnomaly -= 2f * Mathf.PI;
 
@@ -139,7 +140,7 @@ public class OrbitalBody : MonoBehaviour
     /// Rotates the body on itself as per it's day length.
     private void AdvanceDayRotation()
     {
-        float rot = Time.deltaTime * SpaceTime.Instance.TimeScale * (360 / dayLength);
+        float rot = SpaceTime.Instance.DeltatTime * (360 / dayLength);
         _body.transform.Rotate(new Vector3(0, -rot, 0)); // counter clockwise is the standard rotation considered
     }
 

@@ -47,6 +47,7 @@ public class SpaceTime : MonoBehaviour {
         }
     }
 
+    private float _lastTimeScale = BaseTimeScale;
     private float _timeScale = BaseTimeScale;
 
     public float TimeScale {
@@ -62,6 +63,10 @@ public class SpaceTime : MonoBehaviour {
 	public double ElapsedTime {
         get { return _elapsedTime; }
         private set { _elapsedTime = value; }
+    }
+
+    public float DeltatTime {
+        get { return Time.deltaTime * TimeScale; }
     }
 
     public enum Scale{Time, Orbit, Body};
@@ -81,10 +86,12 @@ public class SpaceTime : MonoBehaviour {
 
 	private void Start() {
         ControlIntentions.Instance.Scaling += UpdateScale;
+        // ControlIntentions.Instance.PauseGame += PauseTime;        
     }
 
     private void OnDestroy() {
         ControlIntentions.Instance.Scaling -= UpdateScale;
+        // ControlIntentions.Instance.PauseGame -= PauseTime;                
     }
 	
 	private void Update() {
@@ -110,6 +117,15 @@ public class SpaceTime : MonoBehaviour {
             default:
             Debug.LogWarning("Unknown scale when updating scales.");
             break;
+        }
+    }
+
+    public void PauseTime(){
+        if(TimeScale != 0f){
+            _lastTimeScale = TimeScale;
+            TimeScale = 0f;
+        } else {
+            TimeScale = _lastTimeScale;
         }
     }
 
