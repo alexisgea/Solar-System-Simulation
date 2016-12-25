@@ -10,39 +10,44 @@ public class StateDisplay : MonoBehaviour
     [SerializeField] private GameObject _focusDisplay;
 
     // potentialy changeable through UI in the future?
-    private float _timeScale;
+    // private float _timeScale;
     private string _timeScaleText = "Time Scale: ";
     private string _focusText = "Focus: ";
 
     private void Start()
     {
-        FindObjectOfType<StellarSystem>().Scaling += UpdateScale;
-        FindObjectOfType<CamControl>().Focusing += UpdateFocus;
+        SpaceTime.Instance.ScaleUpdated += UpdateScale;
+        FindObjectOfType<CamControl>().NewFocus += UpdateFocus;
         //SetScales ();
     }
 
-    /// <summary>
-    /// Sets the scales info on the UI.
-    /// The three commented-out scales were not so interesting but are kept for potential UI improvement.
-    /// </summary>
-    private void SetScales()
-    {
-        _timeScale = FindObjectOfType<StellarSystem>().TimeScale;
-        //timescaledisplay.getcomponent<text> ().text = "time scale: " + timescale.tostring("f4");
+    private void OnDestroy() {
+        SpaceTime.Instance.ScaleUpdated -= UpdateScale;
+        FindObjectOfType<CamControl>().NewFocus -= UpdateFocus;
     }
+
+    // /// <summary>
+    // /// Sets the scales info on the UI.
+    // /// The three commented-out scales were not so interesting but are kept for potential UI improvement.
+    // /// </summary>
+    // private void SetScales()
+    // {
+    //     _timeScale = FindObjectOfType<StellarSystem>().TimeScale;
+    //     //timescaledisplay.getcomponent<text> ().text = "time scale: " + timescale.tostring("f4");
+    // }
 
     /// <summary>
     /// Updates the scales info on the UI.
     /// </summary>
     /// <param name="variable">Which scale.</param>
     /// <param name="value">Scale value.</param>
-    private void UpdateScale(string variable, float value)
+    private void UpdateScale(SpaceTime.Scale scale, float value)
     {
-        switch (variable)
+        switch (scale)
         {
-            case "time":
-                _timeScale = value;
-                _timeScaleDisplay.GetComponent<Text>().text = _timeScaleText + _timeScale.ToString("F4");
+            case SpaceTime.Scale.Time:
+                //_timeScale = value;
+                _timeScaleDisplay.GetComponent<Text>().text = _timeScaleText + value.ToString("F4");
                 break;
             default:
                 Debug.Log("Wrong variable name in StateDiplay.UpdateScale() .");

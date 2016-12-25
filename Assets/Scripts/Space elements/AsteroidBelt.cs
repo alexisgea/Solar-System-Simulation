@@ -35,26 +35,13 @@ public class AsteroidBelt : MonoBehaviour {
 	// the actual asteroids in an array
 	private Asteroid[] _asteroids;
 
-	// variable related to game scales variables (to be moved in a singleton)
-	private float _timeScale;
-	private float _orbitScale;
-	private float _totalTime; 
-	
 	// Use this for initialization
 	private void Start () {
 
-		FindObjectOfType<StellarSystem>().Scaling += UpdateScale;
-		_orbitScale = FindObjectOfType<StellarSystem>().OrbitScale;
-		_timeScale = FindObjectOfType<StellarSystem>().TimeScale;
-
 		GenerateBelt();
+
 	}
 	
-	// update every frame
-	private void Update() {
-		_totalTime += Time.deltaTime * _timeScale;
-	}
-
 	// called every frame on render
 	private void OnRenderObject() {
 
@@ -111,7 +98,7 @@ public class AsteroidBelt : MonoBehaviour {
 		// getting missing position parameters
 		int semiMinorAxis = (int)(semiMajorAxis * Mathf.Sqrt(1 - Mathf.Pow(eccentricity, 2f)));
 		float initialArgument = Random.Range(0f, 2*Mathf.PI);
-		float period = 2 * Mathf.PI * Mathf.Sqrt (Mathf.Pow (semiMajorAxis * _orbitScale, 3) / (17.78f));  // forgot what was the 17.78f
+		float period = 2 * Mathf.PI * Mathf.Sqrt (Mathf.Pow (semiMajorAxis * SpaceTime.Instance.OrbitScale, 3) / (17.78f));  // forgot what was the 17.78f
 
 		// reseting base transform for next use (extension method)
 		transform.ResetTransformation();
@@ -206,16 +193,16 @@ public class AsteroidBelt : MonoBehaviour {
 	// Calculates and return the asteroid position
 	private Vector3 ComputeAsteroidPos(int index) {
 		// first we calculate how far in the orbit the asterod is
-		float theta = _asteroids[index].InitialArgument + (_totalTime / _asteroids[index].Period);
+		float theta = _asteroids[index].InitialArgument + (float)(SpaceTime.Instance.ElapsedTime / _asteroids[index].Period);
 		
 		// then we use an elipse parametric equation to get the point of that angle in the orbit
 		// elipse focus F(1,2,3), major axis unit vector (forward) M(1,2,3), minor axis unit vector (right) m(1,2,3)
 		// semi major axis a, semi minor axis b, theta position angle
 		// pos = F + a*cos(theta)*M + b*sin(theta)*m
 		// minus in front of theta as the asteroid orbit counter clockwise
-		Vector3 firstMember = _orbitScale * _asteroids[index].OrbitFocus;
-		Vector3 secondMember = _asteroids[index].SemiMajorAxis * _orbitScale * Mathf.Cos (-theta) * _asteroids[index].MajorVector ;
-		Vector3 thirdMember = _asteroids[index].SemiMinorAxis * _orbitScale * Mathf.Sin (-theta) * _asteroids[index].MinorVector;
+		Vector3 firstMember = SpaceTime.Instance.OrbitScale * _asteroids[index].OrbitFocus;
+		Vector3 secondMember = _asteroids[index].SemiMajorAxis * SpaceTime.Instance.OrbitScale * Mathf.Cos (-theta) * _asteroids[index].MajorVector;
+		Vector3 thirdMember = _asteroids[index].SemiMinorAxis * SpaceTime.Instance.OrbitScale * Mathf.Sin (-theta) * _asteroids[index].MinorVector;
 		
 		Vector3 spacePos = firstMember + secondMember + thirdMember;
 
@@ -254,25 +241,6 @@ public class AsteroidBelt : MonoBehaviour {
 	// 	for (int i = 0; i < _beltPopulation; i++)
 	// 		_asteroids[i].Period = 2 * Mathf.PI * Mathf.Sqrt (Mathf.Pow (_asteroids[i].SemiMajorAxis * _orbitScale, 3) / (17.78f));
 	// }
-
-	// TODO this needs to be in a singleton
-	// updates the differents application scale
-	// called through events
-	public void UpdateScale(string variable, float value) {
-        switch (variable) {
-            case "time":
-                _timeScale = value;
-                break;
-
-            case "orbit":
-                _orbitScale = value;
-				//UpdateOrbitPeriods();
-                break;
-
-            default:
-                break;
-        }
-    }
 
 }
 

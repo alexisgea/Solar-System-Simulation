@@ -21,8 +21,8 @@ using UnityEngine.EventSystems;
 public class CamControl : MonoBehaviour
 {
     // TODO: rename var correctly.
-    [SerializeField] private GameObject pole;
-    [SerializeField] private Camera cam;
+    [SerializeField] private Camera _cam;
+    private Transform _camPole;
 
     // cam control togle
     private bool _userControl = false;
@@ -36,13 +36,13 @@ public class CamControl : MonoBehaviour
     // cam focus variable and event action
     private Transform _selectedBody;
 
-    public event Action<Transform> Focusing;
+    public event Action<Transform> NewFocus;
 
-    // Camera limit and calculations constants.
-    const float CamFinalPos = -20;
-    const float CamFinalRot = 25;
-    const float LerpIntensity = 0.1f;
-    const float LerpEnd = 0.1f;
+    // // Camera limit and calculations constants.
+    // const float CamFinalPos = -20;
+    // const float CamFinalRot = 25;
+    // const float LerpIntensity = 0.1f;
+    // const float LerpEnd = 0.1f;
 
     const float CamSpeed = 25f;
     // cam moving in and out as a zoom to the center
@@ -54,6 +54,9 @@ public class CamControl : MonoBehaviour
 
     // Mostly registers to control intention events on start
     private void Start() {
+
+        _camPole = _cam.transform.parent;
+
         ControlIntentions.Instance.CamRotation += RotateCam;
         ControlIntentions.Instance.CamTranslation += TranslateCam;
         ControlIntentions.Instance.FocusSelection += CheckSelection;
@@ -61,9 +64,9 @@ public class CamControl : MonoBehaviour
         // Set the first body transform to istelf (null) to avoid error with cam zoom function.
         _selectedBody = transform;
 
-        // TODO provably remove that
-        FindObjectOfType<InterfaceManager>().FullStart += ControlToggle;
-        FindObjectOfType<InterfaceManager>().FullStart += CamInitialization;
+        // // TODO provably remove that
+        // FindObjectOfType<InterfaceManager>().FullStart += ControlToggle;
+        // FindObjectOfType<InterfaceManager>().FullStart += CamInitialization;
     }
 
     // unregister from events
@@ -84,56 +87,56 @@ public class CamControl : MonoBehaviour
         // the animation script will handle if the camera can be interupted or not
         // it should be possible to switch easily between interrupting the anim or blocking input during anim
         ////////////////////
-        if (_initializeCam)
-            PanCam();
+        // if (_initializeCam)
+        //     PanCam();
 
-        if (_userControl) {
-            // If the player starts moving before cam panning is finished we let him do.
-            if (_initializeCam && Input.anyKey || Input.GetAxis("Mouse ScrollWheel") != 0)
-                _initializeCam = false;
-        }
+        // if (_userControl) {
+        //     // If the player starts moving before cam panning is finished we let him do.
+        //     if (_initializeCam && Input.anyKey || Input.GetAxis("Mouse ScrollWheel") != 0)
+        //         _initializeCam = false;
+        // }
         /////////////////
     }
 
-    /// <summary>
-    /// Toggle on and off of camera control.
-    /// Listening to UI events.
-    /// </summary>
-    private void ControlToggle() {
-        _userControl = !_userControl;
-    }
+    // /// <summary>
+    // /// Toggle on and off of camera control.
+    // /// Listening to UI events.
+    // /// </summary>
+    // private void ControlToggle() {
+    //     _userControl = !_userControl;
+    // }
 
-    /// <summary>
-    /// Enables the movement when closing the first menu.
-    /// Listening to event.
-    /// </summary>
-    private void CamInitialization() {
-        _initializeCam = true;
-    }
+    // /// <summary>
+    // /// Enables the movement when closing the first menu.
+    // /// Listening to event.
+    // /// </summary>
+    // private void CamInitialization() {
+    //     _initializeCam = true;
+    // }
 
-    /// <summary>
-    /// Cam movement after we close the first menu using lerp functions.
-    /// </summary>
-    private void PanCam() {
-        Vector3 pos = cam.transform.localPosition;
-        Vector3 rot = pole.transform.localEulerAngles;
+    // /// <summary>
+    // /// Cam movement after we close the first menu using lerp functions.
+    // /// </summary>
+    // private void PanCam() {
+    //     Vector3 pos = _cam.transform.localPosition;
+    //     Vector3 rot = _camPole.localEulerAngles;
 
-        // This is a funcky bit to properly rotate the camera with EulerAngles.
-        float rotX = rot.x;
-        if (rotX > CamFinalRot)
-            rotX -= 360;
+    //     // This is a funcky bit to properly rotate the camera with EulerAngles.
+    //     float rotX = rot.x;
+    //     if (rotX > CamFinalRot)
+    //         rotX -= 360;
 
-        float newRotX = Mathf.Lerp(rotX, CamFinalRot, LerpIntensity);
-        if (newRotX < 0)
-            newRotX += 360;
+    //     float newRotX = Mathf.Lerp(rotX, CamFinalRot, LerpIntensity);
+    //     if (newRotX < 0)
+    //         newRotX += 360;
 
-        cam.transform.localPosition = Vector3.Lerp(pos, new Vector3(0, 0, CamFinalPos), LerpIntensity);
-        pole.transform.localEulerAngles = new Vector3(newRotX, 0, 0);
+    //     _cam.transform.localPosition = Vector3.Lerp(pos, new Vector3(0, 0, CamFinalPos), LerpIntensity);
+    //     _camPole.localEulerAngles = new Vector3(newRotX, 0, 0);
 
-        // If we are close enough to the desired position we stop the lerping.
-        if (Mathf.Abs(pos.z - CamFinalPos) <= LerpEnd)
-            _initializeCam = false;
-    }
+    //     // If we are close enough to the desired position we stop the lerping.
+    //     if (Mathf.Abs(pos.z - CamFinalPos) <= LerpEnd)
+    //         _initializeCam = false;
+    // }
 
     // listen to control event and manages the orbital rotation of the cam
     private void RotateCam(string axis, float dir) {
@@ -143,7 +146,7 @@ public class CamControl : MonoBehaviour
 
         // Rotation of the cam around the center vertically (on the x axis of Pole).
         else if (axis == "vertical")
-            pole.transform.Rotate(new Vector3(dir * CamSpeed * Time.deltaTime, 0, 0));
+            _camPole.Rotate(new Vector3(dir * CamSpeed * Time.deltaTime, 0, 0));
         
         // And just to be sure
         else
@@ -154,10 +157,10 @@ public class CamControl : MonoBehaviour
     private void TranslateCam(float translation) {
         // The idea is to use the actual distance from the cam to the focus body
         // as a factor in how fast the cam is moving othe pole.
-        Vector3 pos = cam.transform.localPosition;
-        float Z = pos.z + ZoomSpeed * translation * cam.transform.localPosition.magnitude;
+        Vector3 pos = _cam.transform.localPosition;
+        float Z = pos.z + ZoomSpeed * translation * _cam.transform.localPosition.magnitude;
         pos.z = Mathf.Clamp(Z, ZoomMax, ZoomMin);
-        cam.transform.localPosition = pos;
+        _cam.transform.localPosition = pos;
     }
 
     /// <summary>
@@ -166,15 +169,15 @@ public class CamControl : MonoBehaviour
     /// </summary>
     private void CheckSelection(Vector3 selectorPos) {
         // first we cast a Ray on the UI to see if we catched one of the icon
-        Ray ray = cam.ScreenPointToRay(selectorPos);
+        Ray ray = _cam.ScreenPointToRay(selectorPos);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, RayLength)) {
             if (hit.collider != null) {
                 _selectedBody = hit.collider.transform;
 
-                if (Focusing != null)
-                    Focusing(_selectedBody);
+                if (NewFocus != null)
+                    NewFocus(_selectedBody);
 
                 if (!GetComponent<AudioSource>().isPlaying)
                     GetComponent<AudioSource>().PlayOneShot(selectionSound);
@@ -192,8 +195,8 @@ public class CamControl : MonoBehaviour
                 // As the UI is on top it should always be on 0? Or something like that, to be checked.
                 _selectedBody = raycastResults[0].gameObject.GetComponent<BodyLabel>().Owner.transform;
 
-                if (Focusing != null)
-                    Focusing(_selectedBody);
+                if (NewFocus != null)
+                    NewFocus(_selectedBody);
 
                 if (!GetComponent<AudioSource>().isPlaying)
                     GetComponent<AudioSource>().PlayOneShot(selectionSound);

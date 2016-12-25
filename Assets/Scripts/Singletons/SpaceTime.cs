@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 public class SpaceTime : MonoBehaviour {
 
@@ -6,17 +7,15 @@ public class SpaceTime : MonoBehaviour {
     private static SpaceTime _instance;
 	public static SpaceTime Instance {
 		get {
-			if (_instance == null){
+			if (_instance == null) {
                 _instance = new SpaceTime();
             }
             return _instance;
         }
 	}
 
-	private void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
+	private void Awake() {
+        if (_instance != null && _instance != this) {
             Destroy(this.gameObject);
         } else {
             _instance = this;
@@ -24,25 +23,39 @@ public class SpaceTime : MonoBehaviour {
     }
 
 	// stellar system scale public variables
-    private float _bodyScale;
+    private float _bodyScale = BaseBodyScale;
 
     public float BodyScale {
-        get { return _bodyScale; }
-        private set { _bodyScale = Mathf.Clamp(value, MinDefaultScale, MaxDefaultScale); }
+        get { 
+            return _bodyScale;
+        }
+        private set { 
+            _bodyScale = Mathf.Clamp(value, MinDefaultScale, MaxDefaultScale);
+            if(ScaleUpdated != null)
+                ScaleUpdated.Invoke(Scale.Body, _bodyScale);
+        }
     }
 
-    private float _orbitScale;
+    private float _orbitScale = BaseOrbitScale;
 
     public float OrbitScale {
         get { return _orbitScale; }
-        private set { _orbitScale = Mathf.Clamp(value, MinDefaultScale, MaxDefaultScale); }
+        private set { 
+            _orbitScale = Mathf.Clamp(value, MinDefaultScale, MaxDefaultScale);
+            if(ScaleUpdated != null)
+                ScaleUpdated.Invoke(Scale.Orbit, _orbitScale);
+        }
     }
 
-    private float _timeScale;
+    private float _timeScale = BaseTimeScale;
 
     public float TimeScale {
         get { return _timeScale; }
-        private set { _timeScale = Mathf.Clamp(value, MinTimeScale, MaxTimeScale); }
+        private set { 
+            _timeScale = Mathf.Clamp(value, MinTimeScale, MaxTimeScale);
+            if(ScaleUpdated != null)
+                ScaleUpdated.Invoke(Scale.Time, _timeScale);
+            }
     }
 
     private double _elapsedTime = 0;
@@ -63,10 +76,11 @@ public class SpaceTime : MonoBehaviour {
     private const float MaxDefaultScale = 1.0f;
 
 	// SpaceTime Signals
+    public event Action<Scale, float> ScaleUpdated;
+
 
 	private void Start() {
         ControlIntentions.Instance.Scaling += UpdateScale;
-        ResetAllScales();
     }
 
     private void OnDestroy() {
@@ -96,7 +110,6 @@ public class SpaceTime : MonoBehaviour {
             default:
             Debug.LogWarning("Unknown scale when updating scales.");
             break;
-
         }
     }
 

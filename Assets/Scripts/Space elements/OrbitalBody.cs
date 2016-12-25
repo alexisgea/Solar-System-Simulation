@@ -33,8 +33,7 @@ public class OrbitalBody : MonoBehaviour
     private const float _eclipticTilt = 23.44f;
     private float _angularVelocity;
 
-    // Scales from the StellarSystem script.
-    private float _timeScale;
+    // // Scales from the StellarSystem script.
     public float SizeScaled { private set; get; }
     public float OrbitScaled { private set; get; }
 
@@ -45,12 +44,17 @@ public class OrbitalBody : MonoBehaviour
 
     private void Start()
     {
-        FindObjectOfType<StellarSystem>().Scaling += UpdateScale;
+        SpaceTime.Instance.ScaleUpdated += UpdateScale;
         FindObjectOfType<InterfaceManager>().OrbitToggle += TogglePath;
         FindObjectOfType<InterfaceManager>().FullStart += TogglePath;
+
         SetScales();
         SetJ2000();
         AdvanceOrbit();
+    }
+
+    private void OnDestroy() {
+        SpaceTime.Instance.ScaleUpdated -= UpdateScale;
     }
 
     private void Update()
@@ -79,9 +83,8 @@ public class OrbitalBody : MonoBehaviour
     /// Initialises the scales from the StellarSystem.
     private void SetScales()
     {
-        _timeScale = FindObjectOfType<StellarSystem>().TimeScale;
-        OrbitScaled = semiMajorAxis * FindObjectOfType<StellarSystem>().OrbitScale;
-        SizeScaled = size * FindObjectOfType<StellarSystem>().BodyScale;
+        OrbitScaled = semiMajorAxis * SpaceTime.Instance.OrbitScale;
+        SizeScaled = size * SpaceTime.Instance.BodyScale;
         _body.transform.localScale = Vector3.one * SizeScaled;
     }
 
@@ -99,25 +102,24 @@ public class OrbitalBody : MonoBehaviour
     /// Called on event from the StellarSystem script.
     /// </summary>
     /// <param name="variable">Which scale.</param>
-    public void UpdateScale(string variable, float value)
+    public void UpdateScale(SpaceTime.Scale scale, float value)
     {
-        switch (variable)
+        switch (scale)
         {
-            case "time":
-                _timeScale = value;
-                break;
-
-            case "body":
+            case SpaceTime.Scale.Body:
                 SizeScaled = size * value;
                 _body.transform.localScale = Vector3.one * SizeScaled;
                 break;
 
-            case "orbit":
+            case SpaceTime.Scale.Orbit:
                 OrbitScaled = semiMajorAxis * value;
                 break;
+            
+            case SpaceTime.Scale.Time:
+                break; 
 
             default:
-                Debug.Log("Wrong variable name in Body.updateScales() .");
+                Debug.LogWarning("Wrong variable name in Body.updateScales() .");
                 break;
         }
     }
@@ -125,7 +127,7 @@ public class OrbitalBody : MonoBehaviour
     /// Calculates how much the body has moved in it's orbit and rotate it's axis accordingly.
     private void AdvanceOrbit()
     {
-        meanAnomaly += _angularVelocity * Time.deltaTime * _timeScale;
+        meanAnomaly += _angularVelocity * Time.deltaTime * SpaceTime.Instance.TimeScale;
         if (meanAnomaly > 2f * Mathf.PI)  // we keep mean anomaly within 2*Pi
             meanAnomaly -= 2f * Mathf.PI;
 
@@ -137,7 +139,7 @@ public class OrbitalBody : MonoBehaviour
     /// Rotates the body on itself as per it's day length.
     private void AdvanceDayRotation()
     {
-        float rot = Time.deltaTime * _timeScale * (360 / dayLength);
+        float rot = Time.deltaTime * SpaceTime.Instance.TimeScale * (360 / dayLength);
         _body.transform.Rotate(new Vector3(0, -rot, 0)); // counter clockwise is the standard rotation considered
     }
 

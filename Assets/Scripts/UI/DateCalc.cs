@@ -10,32 +10,32 @@ using UnityEngine.UI;
 public class DateCalc : MonoBehaviour
 {
     private Text _dateLabel;
-    private float _timeScale;
-    private float _accumulatedTime = 0.5f;  // 0.5 as we start at 12pm, but could be another time.
+    // private float _timeScale;
+    // private float _accumulatedTime = 0.5f;  // 0.5 as we start at 12pm, but could be another time.
     private int _baseYear = 2000;
 
     private void Start()
     {
-        FindObjectOfType<StellarSystem>().Scaling += UpdateScale;
-        _timeScale = FindObjectOfType<StellarSystem>().TimeScale;
+        // FindObjectOfType<StellarSystem>().Scaling += UpdateScale;
+        // _timeScale = FindObjectOfType<StellarSystem>().TimeScale;
         _dateLabel = GetComponent<Text>();
     }
 
     private void Update()
     {
-        _accumulatedTime += Time.deltaTime * _timeScale;
+        // _accumulatedTime += Time.deltaTime * _timeScale;
         UpdateDateLabel();
     }
 
-    /// <summary>
-    /// Updates the time scale from StellarSystem.
-    /// </summary>
-    /// <param name="variable">Which scale.</param>
-    private void UpdateScale(string variable, float value)
-    {
-        if (variable == "time")
-            _timeScale = value;
-    }
+    // /// <summary>
+    // /// Updates the time scale from StellarSystem.
+    // /// </summary>
+    // /// <param name="variable">Which scale.</param>
+    // private void UpdateScale(string variable, float value)
+    // {
+    //     if (variable == "time")
+    //         _timeScale = value;
+    // }
 
     /// <summary>
     /// Updates the date Label based on the current accumulated time and the base year and day time.
@@ -45,11 +45,11 @@ public class DateCalc : MonoBehaviour
     private void UpdateDateLabel()
     {
         // The timePool to substract from.
-        int timePool = Mathf.FloorToInt(_accumulatedTime);
+        double timePool = SpaceTime.Instance.ElapsedTime + 0.5f; // the time pool is due to the fact that we start at noon
 
         int year = ComputeYear(ref timePool, _baseYear);
         int month = ComputeMonth(ref timePool, IsLeapYear(year));
-        int day = timePool + 1; // +1 as we start at 0
+        int day = Mathf.FloorToInt((float)timePool) + 1; // +1 as we start at 0
 
         // Convert to string and add 0 in front of day and month to keep the same structure.
         string dd = day.ToString();
@@ -69,7 +69,7 @@ public class DateCalc : MonoBehaviour
     /// </summary>
     /// <returns>The year.</returns>
     /// <param name="pool">The current time pool passed by reference to directly act on it.</param>
-    private int ComputeYear(ref int pool, int baseYear)
+    private int ComputeYear(ref double pool, int baseYear)
     {
         // could do a leap check on base year to have a +1 or +0 and use any base year
         int year;
@@ -77,10 +77,10 @@ public class DateCalc : MonoBehaviour
         int leapCheck = (IsLeapYear(baseYear)) ? 1 : 0; // we check if the base year is a leap year
 
         // at first we ignore the base year and only have the years passed since program start
-        year = Mathf.FloorToInt(pool / 365.2425f);
+        year = Mathf.FloorToInt((float)(pool / 365.2425f));
 
         // the formula below accounts for leap year. The "-1" is due to thought we are in a leap year, we haven't yet used the extra day
-        dayCheck = pool - (365 * year + (year - 1) / 4 - (year - 1) / 100 + (year - 1) / 400 + leapCheck);
+        dayCheck = Mathf.FloorToInt((float)(pool - (365 * year + (year - 1) / 4 - (year - 1) / 100 + (year - 1) / 400 + leapCheck)));
         if (dayCheck < 0) // due to diff between real year and calendar year, we check that we haven't yet added a year to many
             year -= 1;
 
@@ -115,7 +115,7 @@ public class DateCalc : MonoBehaviour
     /// </summary>
     /// <returns>The month.</returns>
     /// <param name="pool">The current time pool passed by reference to directly act on it.</param>
-    private int ComputeMonth(ref int pool, bool leap)
+    private int ComputeMonth(ref double pool, bool leap)
     {
         // list of number of accumulated days in the year.
         // 0 for i = 0 to match the actual month number and allow for checking the previous month without getting a negative index
