@@ -15,16 +15,15 @@ namespace solsyssim {
         private string _timeScaleText = "Time Scale: ";
         private string _focusText = "Focus: ";
 
-        private void Start()
-        {
+        private void Start() {
             SpaceTime.Instance.ScaleUpdated += UpdateScale;
             FindObjectOfType<CamControl>().NewFocus += UpdateFocus;
         }
 
-        private void OnDestroy() {
-            SpaceTime.Instance.ScaleUpdated -= UpdateScale;
-            FindObjectOfType<CamControl>().NewFocus -= UpdateFocus;
-        }
+        // private void OnDestroy() {
+        //     SpaceTime.Instance.ScaleUpdated -= UpdateScale;
+        //     FindObjectOfType<CamControl>().NewFocus -= UpdateFocus;
+        // }
 
         /// <summary>
         /// Updates the scales info on the UI.

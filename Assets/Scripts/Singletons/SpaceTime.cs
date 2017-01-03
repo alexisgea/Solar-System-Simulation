@@ -3,6 +3,10 @@ using System;
 
 namespace solsyssim {
 
+    //TODO investigate the idea to have a GameManager Singleton instance
+    // which will reference SpaceTime, ControlIntentions and other "singleton"
+    // thus there will be only one singleton
+
     /// <summary>
     /// handles all scales and dimention of space and time for the current gameinstance
     /// </summary>

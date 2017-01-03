@@ -3,6 +3,10 @@ using System;
 
 namespace solsyssim {
 
+    //TODO investigate the idea to have a GameManager Singleton instance
+    // which will reference SpaceTime, ControlIntentions and other "singleton"
+    // thus there will be only one singleton
+
     /// <summary>
     /// This calss handles all control input and check the game state
     /// to deduce the input intention and send a signal to whoever is interested

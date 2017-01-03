@@ -25,6 +25,8 @@ namespace solsyssim {
         [SerializeField] private Camera _cam;
         private Transform _camPole;
 
+		private CamAnimator _camAnimator;
+
         // cam control togle
         private bool _userControl = false;
 
@@ -50,25 +52,30 @@ namespace solsyssim {
 
             _camPole = _cam.transform.parent;
 
+            _camAnimator = GetComponent<CamAnimator>();
+
             ControlIntentions.Instance.CamRotation += RotateCam;
             ControlIntentions.Instance.CamTranslation += TranslateCam;
             ControlIntentions.Instance.FocusSelection += CheckSelection;
+
+            ControlIntentions.Instance.MenuCall += PanCam;
 
             // Set the first body transform to istelf (null) to avoid error with cam zoom function.
             _selectedBody = transform;
 
         }
 
-        private void OnDestroy() {
-            ControlIntentions.Instance.CamRotation -= RotateCam;
-            ControlIntentions.Instance.CamTranslation -= TranslateCam;
-            ControlIntentions.Instance.FocusSelection -= CheckSelection;
-        }
+        // private void OnDestroy() {
+        //     ControlIntentions.Instance.CamRotation -= RotateCam;
+        //     ControlIntentions.Instance.CamTranslation -= TranslateCam;
+        //     ControlIntentions.Instance.FocusSelection -= CheckSelection;
+        // }
 
         // update the cams pole position to the focus body position
         private void Update() {
             // We always set the cam axis position to the selected celestial object's position.
-            transform.position = _selectedBody.position;
+            //transform.position = _selectedBody.position;
+            transform.position = Vector3.Lerp(transform.position, _selectedBody.position, 0.3f);
 
             // TODO 
             // Make a cam anim script that suscribe to any cam event (or make a new one)
@@ -87,6 +94,18 @@ namespace solsyssim {
             /////////////////
         }
 
+		public void PanCam(bool unused){
+			if(_camAnimator != null)
+				_camAnimator.NextAnim (new CamAnimation(_cam.transform, camFinalDepthZPos:-20f, poleFinalVerticalXRot:25f));
+
+            ControlIntentions.Instance.MenuCall -= PanCam;
+		}
+
+        private void StopAnimation(){
+			if (_camAnimator!= null && _camAnimator.IsAnimating)
+				_camAnimator.NextAnim ();
+		}
+
         /// <summary>        
         /// Listen to control event and manages the orbital rotation of the cam.
         /// </summary>        
@@ -102,6 +121,8 @@ namespace solsyssim {
             // And just to be sure
             else
                 Debug.LogWarning("Cam rotation called on unknown axis: " + axis);
+
+            StopAnimation();
         }
 
         /// <summary>        
@@ -114,6 +135,8 @@ namespace solsyssim {
             float Z = pos.z + ZoomSpeed * translation * _cam.transform.localPosition.magnitude;
             pos.z = Mathf.Clamp(Z, ZoomMax, ZoomMin);
             _cam.transform.localPosition = pos;
+
+            StopAnimation();
         }
 
         /// <summary>
@@ -155,6 +178,8 @@ namespace solsyssim {
                         GetComponent<AudioSource>().PlayOneShot(_selectionSound);
                 }
             }
+
+            StopAnimation();
         }
     
     }

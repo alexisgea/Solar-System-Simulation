@@ -2411,6 +2411,7 @@ GameObject:
   - component: {fileID: 799676511}
   - component: {fileID: 799676510}
   - component: {fileID: 799676512}
+  - component: {fileID: 799676513}
   m_Layer: 0
   m_Name: CamAxis
   m_TagString: Untagged
@@ -2430,7 +2431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cam: {fileID: 498463519}
-  selectionSound: {fileID: 8300000, guid: 3b94b210866cdcd40a15026ee17314f3, type: 3}
+  _selectionSound: {fileID: 8300000, guid: 3b94b210866cdcd40a15026ee17314f3, type: 3}
 --- !u!4 &799676511
 Transform:
   m_ObjectHideFlags: 0
@@ -2526,6 +2527,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &799676513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 799676509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 396c1a0babc2d1f43aa53ac76ad88d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cam: {fileID: 498463519}
 --- !u!1 &856319779
 GameObject:
   m_ObjectHideFlags: 0
