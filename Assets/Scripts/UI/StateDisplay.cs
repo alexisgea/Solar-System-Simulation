@@ -6,8 +6,7 @@ namespace solsyssim {
     /// <summary>
     /// UI base class to display the current state of the game, focus, date and scale.
     /// </summary>
-    public class StateDisplay : MonoBehaviour
-    {
+    public class StateDisplay : MonoBehaviour {
         [SerializeField] private GameObject _timeScaleDisplay;
         [SerializeField] private GameObject _focusDisplay;
 

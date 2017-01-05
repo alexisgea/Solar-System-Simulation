@@ -35,7 +35,7 @@ namespace solsyssim {
         private const float _eclipticTilt = 23.44f;
         private float _angularVelocity;
 
-        // // Scales from the StellarSystem script.
+        // Scales from the StellarSystem script.
         public float SizeScaled { private set; get; }
         public float OrbitScaled { private set; get; }
 
@@ -45,8 +45,7 @@ namespace solsyssim {
         private bool _showPath = false;
 
         // registering to some events and initialising stuff
-        private void Start()
-        {
+        private void Start() {
             SpaceTime.Instance.ScaleUpdated += UpdateScale;
             FindObjectOfType<InterfaceManager>().OrbitToggle += TogglePath;
             FindObjectOfType<InterfaceManager>().FullStart += TogglePath;
@@ -56,21 +55,18 @@ namespace solsyssim {
             AdvanceOrbit();
         }
 
-        private void OnDestroy()
-        {
+        private void OnDestroy() {
             SpaceTime.Instance.ScaleUpdated -= UpdateScale;
         }
 
         // advance the body on it's orbit and it's rotation on itself separately
-        private void Update()
-        {
+        private void Update() {
             AdvanceOrbit();
             AdvanceDayRotation();
         }
 
         // renders or not the orbit path
-        private void OnRenderObject()
-        {
+        private void OnRenderObject() {
             if (_showPath)
                 DrawPath();
         }

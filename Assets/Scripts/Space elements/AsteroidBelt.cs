@@ -7,11 +7,13 @@ namespace solsyssim {
 	// rotate the transform toward the camera then draws all asteroid base on it
 	// reuse the position of one asteroid to draw the oposite one and save some cycles
 
-	// This script creates a belt of asteroids and update all of them
-	// it will directly draw the shape with GL and make sure it faces the camera
-	// one belt can only have one style of shape (number of vertex per asteroid) and one material
-	// to vary shape and material just create multiple smaller belt with different settings
-	// Note: this is by far the fastest solution I found without using shader or GPU instancing
+	/// <summary>
+	/// This script creates a belt of asteroids and update all of them
+	/// it will directly draw the shape with GL and make sure it faces the camera
+	/// one belt can only have one style of shape (number of vertex per asteroid) and one material
+	/// to vary shape and material just create multiple smaller belt with different settings
+	/// Note: this is by far the fastest solution I found without using shader or GPU instancing
+	/// </summary>
 	public class AsteroidBelt : MonoBehaviour {
 
 		// belt variable parameters
@@ -39,7 +41,6 @@ namespace solsyssim {
 		// Use this for initialization
 		private void Start () {
 			GenerateBelt();
-
 		}
 		
 		// called every frame on render
@@ -62,7 +63,6 @@ namespace solsyssim {
 				UpdateAsteroid(i+1, camPosition, camRotation, frustumPlanes);
 			}
 			GL.PopMatrix();
-
 		}
 
 		// Creates an asteroidbelt based on the exposed parameters
@@ -80,7 +80,7 @@ namespace solsyssim {
 		}
 
 		// the asteroid generator generate a random asteroid based on the belt parameters given to it
-		private Asteroid AsteroidGenerator(int semiMajorAxis, float inclination = 0f, float eccentricity = 0f){
+		private Asteroid AsteroidGenerator(int semiMajorAxis, float inclination = 0f, float eccentricity = 0f) {
 
 			// generate asteroid shape
 			Vector2[] shape = GetAsteroidShape();
@@ -88,7 +88,6 @@ namespace solsyssim {
 			// orienting orbit plane 
 			float perihelionArgument = Random.Range(0f, 2*Mathf.PI*Mathf.Rad2Deg);
 			transform.Rotate(new Vector3(inclination, perihelionArgument, 0)); // first the perihelion
-			//transform.Rotate(new Vector3(inclination, 0, 0)); // then the inclination, otherwise all inclination are at the same relative place
 
 			// getting transform parameters 
 			Vector3 forward = transform.forward;
@@ -107,14 +106,16 @@ namespace solsyssim {
 			return new Asteroid(shape, center, forward, right, semiMajorAxis, semiMinorAxis, initialArgument, period);
 		}
 
-		// generate a random shape based on complexity and size given
-		// the first vertex is always the asteroid center (one less rotation to do)
-		// thus we only need to compute n-1 vertex of complexity
-		// all possible triangle forms can be made in the 2 consécutif quadrant
-		// so to simplify the creation and ensure the correct clock order of vertex for drawing
-		// we will always get the next vertex in the next quadrant in clockwise order
-		// we will also ensure size (length and angles) are within parameters to be nice looking
-		// this will generate quads or triangles, too complicated and expensive to do more vertices
+		/// <summary>
+		/// generate a random shape based on complexity and size given
+		/// the first vertex is always the asteroid center (one less rotation to do)
+		/// thus we only need to compute n-1 vertex of complexity
+		/// all possible triangle forms can be made in the 2 consécutif quadrant
+		/// so to simplify the creation and ensure the correct clock order of vertex for drawing
+		/// we will always get the next vertex in the next quadrant in clockwise order
+		/// we will also ensure size (length and angles) are within parameters to be nice looking
+		/// this will generate quads or triangles, too complicated and expensive to do more vertices
+		/// </summary>
 		private Vector2[] GetAsteroidShape() {
 
 			bool vertexCorrect = false;
@@ -244,8 +245,10 @@ namespace solsyssim {
 
 	}
 
-	// asteroid structure used in the belt
-	// only holds data and can only be set on creation
+	/// <summary>
+	/// asteroid structure used in the belt
+	/// only holds data and can only be set on creation
+	/// </summary>
 	public struct Asteroid {
 
 		public Vector2[] Shape {private set; get;}
@@ -257,7 +260,9 @@ namespace solsyssim {
 		public float InitialArgument{private set; get;}
 		public float Period{private set; get;}  // set should be private as well (public if we have to recompute periods)
 
-		public Asteroid(Vector2[] shape, Vector3 orbitFocus, Vector3 majorVector, Vector3 minorVector, int semiMajorAxis, int semiMinorAxis, float initialArgument, float period){
+		public Asteroid(Vector2[] shape, Vector3 orbitFocus, Vector3 majorVector, Vector3 minorVector,
+						int semiMajorAxis, int semiMinorAxis, float initialArgument, float period) {
+							
 			this.Shape = shape;
 			this.OrbitFocus = orbitFocus;
 			this.MajorVector = majorVector;

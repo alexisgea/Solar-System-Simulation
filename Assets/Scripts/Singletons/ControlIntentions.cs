@@ -9,7 +9,7 @@ namespace solsyssim {
 
     /// <summary>
     /// This calss handles all control input and check the game state
-    /// to deduce the input intention and send a signal to whoever is interested
+    /// to deduce the input intention and send a signal to whoever is interested.
     /// </summary>
     public class ControlIntentions : MonoBehaviour {
 
@@ -29,8 +29,7 @@ namespace solsyssim {
 
         // checks the singleton instance
         private void Awake() {
-            if (_instance != null && _instance != this)
-            {
+            if (_instance != null && _instance != this) {
                 Debug.LogError("Double instance of ControlIntentions Singleton!");
                 Destroy(this.gameObject);
             } else {
@@ -56,32 +55,32 @@ namespace solsyssim {
         private State _state = State.Menu;
 
         public event Action<SpaceTime.Scale, float> Scaling;
-        private void RaiseScaling(SpaceTime.Scale scale, float value){
+        private void RaiseScaling(SpaceTime.Scale scale, float value) {
             if(Scaling != null)
                 Scaling.Invoke(scale, value);
         }
         public event Action<string, float> CamRotation;
-        private void RaiseCamRotation(string axe, float dir){
+        private void RaiseCamRotation(string axe, float dir) {
             if(CamRotation != null)
                 CamRotation.Invoke(axe, dir);
         }
         public event Action<float> CamTranslation;
-        private void RaiseCamTranslation(float value){
+        private void RaiseCamTranslation(float value) {
             if(CamTranslation != null)
                 CamTranslation.Invoke(value);
         }
         public event Action<Vector3> FocusSelection;
-        private void RaiseFocusSelection(Vector3 mousePosition){
+        private void RaiseFocusSelection(Vector3 mousePosition) {
             if(FocusSelection != null)
                 FocusSelection.Invoke(mousePosition);
         }
         public event Action<bool> MenuCall;
-        private void RaiseMenuCall(bool call){
+        private void RaiseMenuCall(bool call) {
             if(MenuCall != null)
                 MenuCall.Invoke(call);
         }
         public event Action<bool> PauseGame;
-        private void RaisePauseGame(bool pause){
+        private void RaisePauseGame(bool pause) {
             _gamePaused = pause;
             if(PauseGame != null)
                 PauseGame.Invoke(_gamePaused);
@@ -148,7 +147,7 @@ namespace solsyssim {
                 RaiseFocusSelection(Input.mousePosition);
         }
     
-        private void CheckMenuInput(){
+        private void CheckMenuInput() {
             // check condition for changing state
             // hardcoded to always be able to access menus and quit
             if (Input.GetKeyDown(KeyCode.Escape) || SimulatedInput == "menu" || Input.GetButtonDown("menu")) {
@@ -157,7 +156,7 @@ namespace solsyssim {
             }
         }
     
-        private void CheckScalingInput(){
+        private void CheckScalingInput() {
 
             // check condition for changing state
             if (!Input.GetButton("scale time") && !Input.GetButton("scale orbits") && !Input.GetButton("scale bodies"))

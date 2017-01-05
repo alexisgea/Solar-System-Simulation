@@ -8,7 +8,7 @@ namespace solsyssim {
     // thus there will be only one singleton
 
     /// <summary>
-    /// handles all scales and dimention of space and time for the current gameinstance
+    /// Handles all scales and dimention of space and time for the current gameinstance.
     /// </summary>
     public class SpaceTime : MonoBehaviour {
 
@@ -122,7 +122,7 @@ namespace solsyssim {
         // modify the correct scale accordingly
         private void UpdateScale(Scale scale, float value) {
 
-            switch(scale){
+            switch(scale) {
                 
                 case Scale.Body:
                 BodyScale *= 1f + value;
@@ -145,7 +145,7 @@ namespace solsyssim {
         /// <summary>
         /// Sets timescale to the minimum when pause is pressed.
         /// </summary>
-        public void PauseTime(bool pause){
+        public void PauseTime(bool pause) {
             if(pause){
                 _lastTimeScale = TimeScale;
                 TimeScale = MinTimeScale;

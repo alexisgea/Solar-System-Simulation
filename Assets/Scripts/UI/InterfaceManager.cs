@@ -7,8 +7,7 @@ namespace solsyssim {
     /// Class to manage difference UI element and send signal.
     /// This was for giving a single point of event subscription to all other game elements.
     /// </summary>
-    public class InterfaceManager : MonoBehaviour
-    {
+    public class InterfaceManager : MonoBehaviour {
         public event Action FullStart;
 
         // These two will be used with potential UI inprovement.

@@ -74,26 +74,11 @@ namespace solsyssim {
         // update the cams pole position to the focus body position
         private void Update() {
             // We always set the cam axis position to the selected celestial object's position.
-            //transform.position = _selectedBody.position;
             transform.position = Vector3.Lerp(transform.position, _selectedBody.position, 0.3f);
-
-            // TODO 
-            // Make a cam anim script that suscribe to any cam event (or make a new one)
-            // the animations script will handle any type of cam animations
-            // the animation script will handle if the camera can be interupted or not
-            // it should be possible to switch easily between interrupting the anim or blocking input during anim
-            ////////////////////
-            // if (_initializeCam)
-            //     PanCam();
-
-            // if (_userControl) {
-            //     // If the player starts moving before cam panning is finished we let him do.
-            //     if (_initializeCam && Input.anyKey || Input.GetAxis("Mouse ScrollWheel") != 0)
-            //         _initializeCam = false;
-            // }
-            /////////////////
         }
 
+        // the animatino when first starting the game, it is triggerred by an event call
+        // we simply unregister the method so it is not called again
 		public void PanCam(bool unused){
 			if(_camAnimator != null)
 				_camAnimator.NextAnim (new CamAnimation(_cam.transform, camFinalDepthZPos:-20f, poleFinalVerticalXRot:25f));
@@ -101,6 +86,7 @@ namespace solsyssim {
             ControlIntentions.Instance.MenuCall -= PanCam;
 		}
 
+        // stop any ongoing animation by simply creating a new void one
         private void StopAnimation(){
 			if (_camAnimator!= null && _camAnimator.IsAnimating)
 				_camAnimator.NextAnim ();

@@ -5,16 +5,14 @@ namespace solsyssim {
     /// <summary>
     /// UI Class for the infos popup menu.
     /// </summary>
-    public class InfosDisplay : MonoBehaviour
-    {
+    public class InfosDisplay : MonoBehaviour {
         // animator and audio clip references
         [SerializeField] private AudioClip _open;
         [SerializeField] private AudioClip _close;
         private Animator _infosDisplayAnimator;
 
         // gets component reference and register to events
-        private void Start()
-        {
+        private void Start() {
             _infosDisplayAnimator = GetComponent<Animator>();
             ControlIntentions.Instance.MenuCall += MenuCall;
         }
@@ -39,7 +37,7 @@ namespace solsyssim {
         /// <summary>
         /// Create a simulated input for calling the menu on the input control singleton.
         /// </summary>
-        public void MenuCall(){
+        public void MenuCall() {
             ControlIntentions.SimulatedInput = "menu";
         }
 
