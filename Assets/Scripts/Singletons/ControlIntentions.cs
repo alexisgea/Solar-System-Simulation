@@ -116,9 +116,8 @@ namespace solsyssim {
         }
 
         private void CheckGameInput() {
-
             // check condition for changing state
-            if (Input.GetKeyDown(KeyCode.Escape) || SimulatedInput == "escape" || Input.GetButtonDown("menu")) {
+            if (Input.GetKeyDown(KeyCode.Escape) || SimulatedInput == "menu" || Input.GetButtonDown("menu")) {
                 _state = State.Menu;
                 RaisePauseGame(true);
                 RaiseMenuCall(true);
