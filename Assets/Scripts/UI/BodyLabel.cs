@@ -34,7 +34,7 @@ namespace solsyssim {
             FindObjectOfType<InterfaceManager>().IconToggle += ToggleIcon;
             FindObjectOfType<InterfaceManager>().FullStart += ToggleIcon;
 
-            GetComponent<Image>().color = Owner.GetComponent<OrbitalBody>().uiVisual;
+            GetComponent<Image>().color = Owner.GetComponent<OrbitalBody>().UiVisual;
             Sprite newSprite = Resources.Load<Sprite>("Planet sprites/" + Owner.name.ToLower() + "Icon");
             if (newSprite != null)
                 GetComponent<Image>().sprite = newSprite;

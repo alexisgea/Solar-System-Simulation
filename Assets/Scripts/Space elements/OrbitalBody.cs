@@ -10,28 +10,27 @@ namespace solsyssim {
     /// </summary>
     public class OrbitalBody : MonoBehaviour
     {
+        // reference to object in the hierarchy
         [SerializeField] private GameObject _stellarParent;
         [SerializeField] private GameObject _body;
         [SerializeField] private Material _line;
 
-        // TODO: Rename all correctly.
         // Variables related to the orbital axis.
-        [SerializeField] private float sideralYear;
-        [SerializeField] private float semiMajorAxis = 2f;
-        [SerializeField] private float inclination = 0f;
-        [SerializeField] [Range(0f, 1f)] private float eccentricity = 0f;
-        [SerializeField] private float argAscending = 0f; // longitude
-        [SerializeField] private float argPerihelion = 0f; // argument
-        [SerializeField] private float startMeanAnomaly = 0f; // J2000
-        [SerializeField] private float meanAnomaly;
+        [SerializeField] private float _sideralYear;
+        [SerializeField] private float _semiMajorAxis = 2f;
+        [SerializeField] private float _inclination = 0f;
+        [SerializeField] [Range(0f, 1f)] private float _eccentricity = 0f;
+        [SerializeField] private float _argAscending = 0f; // longitude
+        [SerializeField] private float _argPerihelion = 0f; // argument
+        [SerializeField] private float _startMeanAnomaly = 0f; // J2000
+        [SerializeField] private float _meanAnomaly;
 
-        // TODO: Rename all correctly.
         // Variables related to the orbital body.
-        [SerializeField] private float dayLength = 1f;
-        [SerializeField] private float startDayRotation = 0f;
-        [SerializeField] private float size = 1f;
-        [SerializeField] private float rightAscension = 0f;
-        [SerializeField] private float declination = 0f;
+        [SerializeField] private float _dayLength = 1f;
+        [SerializeField] private float _startDayRotation = 0f;
+        [SerializeField] private float _size = 1f;
+        [SerializeField] private float _rightAscension = 0f;
+        [SerializeField] private float _declination = 0f;
         private const float _eclipticTilt = 23.44f;
         private float _angularVelocity;
 
@@ -39,9 +38,9 @@ namespace solsyssim {
         public float SizeScaled { private set; get; }
         public float OrbitScaled { private set; get; }
 
-        // TODO: Rename all correctly.
-        // Visual path related variables.
-        public Color uiVisual;
+        // planet UI color and path variables
+        [SerializeField] private Color _uiVisual;
+        public Color UiVisual { get { return _uiVisual; } }
         private bool _showPath = false;
 
         // registering to some events and initialising stuff
@@ -75,12 +74,12 @@ namespace solsyssim {
         /// Initialises the orbital body state as per the J2000 data.
         /// </summary>
         private void SetJ2000() {
-            transform.Rotate(new Vector3(0, 0, (90 - declination)));
-            transform.Rotate(new Vector3(0, -rightAscension, 0));
+            transform.Rotate(new Vector3(0, 0, (90 - _declination)));
+            transform.Rotate(new Vector3(0, -_rightAscension, 0));
             transform.Rotate(new Vector3(_eclipticTilt, 0, 0));
-            transform.Rotate(new Vector3(0, startDayRotation, 0), Space.Self);
-            _angularVelocity = Mathf.Deg2Rad * (360 / sideralYear); // Gow much degree is covered each day.
-            meanAnomaly = startMeanAnomaly * Mathf.Deg2Rad;
+            transform.Rotate(new Vector3(0, _startDayRotation, 0), Space.Self);
+            _angularVelocity = Mathf.Deg2Rad * (360 / _sideralYear); // Gow much degree is covered each day.
+            _meanAnomaly = _startMeanAnomaly * Mathf.Deg2Rad;
         }
 
 
@@ -88,8 +87,8 @@ namespace solsyssim {
         /// Initialises the scales from the StellarSystem.
         /// </summary>
         private void SetScales() {
-            OrbitScaled = semiMajorAxis * SpaceTime.Instance.OrbitScale;
-            SizeScaled = size * SpaceTime.Instance.BodyScale;
+            OrbitScaled = _semiMajorAxis * SpaceTime.Instance.OrbitScale;
+            SizeScaled = _size * SpaceTime.Instance.BodyScale;
             _body.transform.localScale = Vector3.one * SizeScaled;
         }
 
@@ -108,12 +107,12 @@ namespace solsyssim {
             switch (scale) {
 
                 case SpaceTime.Scale.Body:
-                    SizeScaled = size * value;
+                    SizeScaled = _size * value;
                     _body.transform.localScale = Vector3.one * SizeScaled;
                     break;
 
                 case SpaceTime.Scale.Orbit:
-                    OrbitScaled = semiMajorAxis * value;
+                    OrbitScaled = _semiMajorAxis * value;
                     break;
                 
                 case SpaceTime.Scale.Time:
@@ -129,11 +128,11 @@ namespace solsyssim {
         /// Calculates how much the body has moved in it's orbit and rotate it's axis accordingly.
         /// </summary>        
         private void AdvanceOrbit() {
-            meanAnomaly += _angularVelocity * SpaceTime.Instance.DeltatTime;
-            if (meanAnomaly > 2f * Mathf.PI)  // we keep mean anomaly within 2*Pi
-                meanAnomaly -= 2f * Mathf.PI;
+            _meanAnomaly += _angularVelocity * SpaceTime.Instance.DeltatTime;
+            if (_meanAnomaly > 2f * Mathf.PI)  // we keep mean anomaly within 2*Pi
+                _meanAnomaly -= 2f * Mathf.PI;
 
-            Vector3 orbitPos = GetPosition(meanAnomaly);
+            Vector3 orbitPos = GetPosition(_meanAnomaly);
             Vector3 parentPos = _stellarParent.transform.position; // position of the parent to offset the calculated pos (used for moons)
             transform.position = new Vector3(orbitPos.x + parentPos.x, orbitPos.y + parentPos.y, orbitPos.z + parentPos.z);
         }
@@ -142,7 +141,7 @@ namespace solsyssim {
         /// Rotates the body on itself as per it's day length.
         /// </summary>        
         private void AdvanceDayRotation() {
-            float rot = SpaceTime.Instance.DeltatTime * (360 / dayLength);
+            float rot = SpaceTime.Instance.DeltatTime * (360 / _dayLength);
             _body.transform.Rotate(new Vector3(0, -rot, 0)); // counter clockwise is the standard rotation considered
         }
 
@@ -154,7 +153,7 @@ namespace solsyssim {
             const float PathDetail = 0.03f;  // TODO improve with size of orbit and distance/view to cam
 
             GL.PushMatrix();
-            _line.color = uiVisual;
+            _line.color = UiVisual;
             _line.SetPass(0);
             GL.Begin(GL.LINES);
 
@@ -192,7 +191,7 @@ namespace solsyssim {
 
             int maxIter = 20;  // we make sure we won't loop too much
             int i = 0;
-            float e = eccentricity;
+            float e = _eccentricity;
             float precision = Mathf.Pow(10, -dp);
             float E, F;
 
@@ -220,7 +219,7 @@ namespace solsyssim {
             // I tried sin(TA) = (sqrt(1-e*e) * sin(E))/(1 -e*cos(E)) but it didn't work properly for some reason,
             // so I sued the following as one of the my sources(jgiesen.de/Kepler) tan(TA) = (sqrt(1-e*e) * sin(E)) / (cos(E) - e).
 
-            float e = eccentricity;
+            float e = _eccentricity;
             float numerator = Mathf.Sqrt(1f - e * e) * Mathf.Sin(E);
             float denominator = Mathf.Cos(E) - e;
             float TA = Mathf.Atan2(numerator, denominator);
@@ -234,11 +233,11 @@ namespace solsyssim {
         /// <returns>The point position.</returns>
         /// <param name="M">Mean anomaly.</param>
         public Vector3 GetPosition(float M) {
-            float e = eccentricity;
+            float e = _eccentricity;
             float a = OrbitScaled; // semiMajorAxis
-            float N = argAscending * Mathf.Deg2Rad; // not const as might vary with precession
-            float w = argPerihelion * Mathf.Deg2Rad;
-            float i = inclination * Mathf.Deg2Rad;
+            float N = _argAscending * Mathf.Deg2Rad; // not const as might vary with precession
+            float w = _argPerihelion * Mathf.Deg2Rad;
+            float i = _inclination * Mathf.Deg2Rad;
 
             float E = EccentricAnomaly(M);
             float TA = TrueAnomaly(E);

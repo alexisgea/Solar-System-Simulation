@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38073996, b: 0.35872692, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -283,6 +283,81 @@ Prefab:
       propertyPath: _stellarParent
       value: 
       objectReference: {fileID: 1934619618}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.r
+      value: 0.49411768
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.g
+      value: 0.72156864
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.b
+      value: 0.76470596
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _sideralYear
+      value: 30687.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _semiMajorAxis
+      value: 2875040
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _inclination
+      value: 0.773
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _eccentricity
+      value: 0.046
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argAscending
+      value: 74.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argPerihelion
+      value: 96.999
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _startMeanAnomaly
+      value: 142.239
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _dayLength
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _size
+      value: 25.362
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _rightAscension
+      value: 257.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _declination
+      value: -15.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -760,6 +835,86 @@ Prefab:
       propertyPath: _stellarParent
       value: 
       objectReference: {fileID: 1934619618}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.r
+      value: 0.5647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.g
+      value: 0.52156866
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.b
+      value: 0.44705886
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _sideralYear
+      value: 87.969
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _semiMajorAxis
+      value: 57909
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _inclination
+      value: 7.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _eccentricity
+      value: 0.206
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argAscending
+      value: 48.331
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argPerihelion
+      value: 29.124
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _meanAnomaly
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _startMeanAnomaly
+      value: 174.796
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _dayLength
+      value: 58.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _size
+      value: 2.439
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _rightAscension
+      value: 281.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _declination
+      value: 61.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -1231,6 +1386,81 @@ Prefab:
       propertyPath: _stellarParent
       value: 
       objectReference: {fileID: 1991514988}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.g
+      value: 0.9568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.b
+      value: 0.81568635
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _sideralYear
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _semiMajorAxis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _inclination
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _eccentricity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argAscending
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argPerihelion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _startMeanAnomaly
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _dayLength
+      value: 25.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _size
+      value: 695.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _rightAscension
+      value: 286.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _declination
+      value: 63.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -1422,6 +1652,81 @@ Prefab:
       propertyPath: _stellarParent
       value: 
       objectReference: {fileID: 1934619618}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.r
+      value: 0.8470589
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.g
+      value: 0.49411768
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.b
+      value: 0.22352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _sideralYear
+      value: 686.979
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _semiMajorAxis
+      value: 227939
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _inclination
+      value: 1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _eccentricity
+      value: 0.093
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argAscending
+      value: 49.558
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argPerihelion
+      value: 286.502
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _startMeanAnomaly
+      value: 19.373
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _dayLength
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _size
+      value: 3.396
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _rightAscension
+      value: 317.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _declination
+      value: 52.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -2034,6 +2339,81 @@ Prefab:
       propertyPath: _stellarParent
       value: 
       objectReference: {fileID: 1934619618}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.r
+      value: 0.9843138
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.g
+      value: 0.90196085
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.b
+      value: 0.427451
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _sideralYear
+      value: 224.701
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _semiMajorAxis
+      value: 108208
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _inclination
+      value: 3.395
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _eccentricity
+      value: 0.007
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argAscending
+      value: 76.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argPerihelion
+      value: 54.884
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _startMeanAnomaly
+      value: 50.115
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _dayLength
+      value: -243.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _size
+      value: 6.052
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _rightAscension
+      value: 272.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _declination
+      value: 61.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -2204,6 +2584,71 @@ Prefab:
       propertyPath: _stellarParent
       value: 
       objectReference: {fileID: 1979238811}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.r
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.g
+      value: 0.6431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.b
+      value: 0.6431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _sideralYear
+      value: 27.321
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _semiMajorAxis
+      value: 3840
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _inclination
+      value: 5.145
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _eccentricity
+      value: 0.055
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _dayLength
+      value: 27.321
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _startDayRotation
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _size
+      value: 1.737
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _rightAscension
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _declination
+      value: 66.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -2411,6 +2856,7 @@ GameObject:
   - component: {fileID: 799676511}
   - component: {fileID: 799676510}
   - component: {fileID: 799676512}
+  - component: {fileID: 799676514}
   - component: {fileID: 799676513}
   m_Layer: 0
   m_Name: CamAxis
@@ -2535,10 +2981,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 799676509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 396c1a0babc2d1f43aa53ac76ad88d1b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0500195fe8a249744bba97736dc25ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _cam: {fileID: 498463519}
+--- !u!114 &799676514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 799676509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbbd8dc1a2073fe4bb1457fd712f5f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cam: {fileID: 498463519}
+  _selectionSound: {fileID: 8300000, guid: 3b94b210866cdcd40a15026ee17314f3, type: 3}
 --- !u!1 &856319779
 GameObject:
   m_ObjectHideFlags: 0
@@ -3393,6 +3852,81 @@ Prefab:
       propertyPath: _stellarParent
       value: 
       objectReference: {fileID: 1934619618}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.r
+      value: 0.8235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.g
+      value: 0.7803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.b
+      value: 0.44705886
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _sideralYear
+      value: 10755.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _semiMajorAxis
+      value: 1429390
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _inclination
+      value: 2.485
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _eccentricity
+      value: 0.056
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argAscending
+      value: 113.665
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argPerihelion
+      value: 339.392
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _startMeanAnomaly
+      value: 317.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _dayLength
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _size
+      value: 58.232
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _rightAscension
+      value: 40.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _declination
+      value: 83.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -3602,6 +4136,81 @@ Prefab:
       propertyPath: _stellarParent
       value: 
       objectReference: {fileID: 1934619618}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.r
+      value: 0.7803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.g
+      value: 0.7490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.b
+      value: 0.62352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _sideralYear
+      value: 4332.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _semiMajorAxis
+      value: 778229
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _inclination
+      value: 1.303
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _eccentricity
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argAscending
+      value: 100.464
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argPerihelion
+      value: 273.867
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _startMeanAnomaly
+      value: 20.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _dayLength
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _size
+      value: 69.911
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _rightAscension
+      value: 268.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _declination
+      value: 64.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -4006,6 +4615,81 @@ Prefab:
       propertyPath: _stellarParent
       value: 
       objectReference: {fileID: 1934619618}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.r
+      value: 0.36078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.g
+      value: 0.43529415
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.b
+      value: 0.7960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _sideralYear
+      value: 60190.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _semiMajorAxis
+      value: 4504450
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _inclination
+      value: 1.768
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _eccentricity
+      value: 0.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argAscending
+      value: 131.784
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argPerihelion
+      value: 276.336
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _startMeanAnomaly
+      value: 256.228
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _dayLength
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _size
+      value: 24.622
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _rightAscension
+      value: 299.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _declination
+      value: 43.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0
@@ -4972,6 +5656,71 @@ Prefab:
       propertyPath: _stellarParent
       value: 
       objectReference: {fileID: 1934619618}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.r
+      value: 0.3529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.g
+      value: 0.5411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.b
+      value: 0.8000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _sideralYear
+      value: 365.256
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _semiMajorAxis
+      value: 149598
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _eccentricity
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argAscending
+      value: -11.261
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _argPerihelion
+      value: 114.208
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _startMeanAnomaly
+      value: 358.617
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _startDayRotation
+      value: 78.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _size
+      value: 6.371
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _declination
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011385163982, guid: 2b54d9d4ca10a104a827f60900e85cf2,
+        type: 2}
+      propertyPath: _uiVisual.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b54d9d4ca10a104a827f60900e85cf2, type: 2}
   m_IsPrefabParent: 0

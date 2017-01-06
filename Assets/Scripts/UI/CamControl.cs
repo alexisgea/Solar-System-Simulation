@@ -6,9 +6,9 @@ using UnityEngine.EventSystems;
 namespace solsyssim {
 
     // TODO
-    // add actual zooming effect (right click + wheel?)
-    // add cam rotation on itself (right click + motion?)
-    // rename current rotation to orbit
+        // add actual zooming effect (right click + wheel?)
+        // add cam rotation on itself (right click + motion?)
+        // rename current rotation to orbit
 
     /// <summary>
     /// Camera Control Script.

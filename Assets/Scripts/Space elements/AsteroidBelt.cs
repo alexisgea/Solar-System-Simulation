@@ -4,8 +4,8 @@ namespace solsyssim {
 
 	// TODO get local transform so the belt can be attached to any other thing
 	// TODO potential improvements
-	// rotate the transform toward the camera then draws all asteroid base on it
-	// reuse the position of one asteroid to draw the oposite one and save some cycles
+		// rotate the transform toward the camera then draws all asteroid base on it
+		// reuse the position of one asteroid to draw the oposite one and save some cycles
 
 	/// <summary>
 	/// This script creates a belt of asteroids and update all of them
