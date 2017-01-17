@@ -2140,7 +2140,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: (v0.9 by Alexis - github.com/Geaxle)
+  m_Text: (v1.1 by Alexis - github.com/Geaxle)
 --- !u!222 &516884133
 CanvasRenderer:
   m_ObjectHideFlags: 0
