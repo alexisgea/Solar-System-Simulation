@@ -28,7 +28,7 @@ namespace solsyssim {
 
         private void Awake() {
             if (_instance != null && _instance != this) {
-                Debug.LogError("Double instance of ControlIntentions Singleton!");
+                Debug.LogWarning("Double instance of ControlIntentions Singleton!");
                 Destroy(this.gameObject);
             } else {
                 _instance = this;

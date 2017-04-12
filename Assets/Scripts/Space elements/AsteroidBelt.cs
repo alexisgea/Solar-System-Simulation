@@ -46,10 +46,7 @@ namespace solsyssim {
 		// called every frame on render
 		private void OnRenderObject() {
 
-			if (!_beltMaterial) {
-				Debug.LogError("Please assign asteroid belt material on the inspector");
-				return;
-			}
+            Debug.Assert(_beltMaterial != null, "Please assign asteroid belt material on the inspector");
 
 			GL.PushMatrix();
 			_beltMaterial.SetPass(0);

@@ -30,7 +30,7 @@ namespace solsyssim {
         // checks the singleton instance
         private void Awake() {
             if (_instance != null && _instance != this) {
-                Debug.LogError("Double instance of ControlIntentions Singleton!");
+                Debug.LogWarning("Double instance of ControlIntentions Singleton!");
                 Destroy(this.gameObject);
             } else {
                 _instance = this;
@@ -110,7 +110,7 @@ namespace solsyssim {
                     break;
 
                 default:
-                    Debug.LogWarning("Unknown game state when checking for input.");
+                    Debug.LogError("Unknown game state when checking for input.");
                     break;
             }
         }
